@@ -35,7 +35,7 @@ You are expected to work on written assignments in groups of 3. All written
 homework must be typeset and submitted as a PDF using the online submission
 tool.  All written assignments must be submitted as a group.  Homeworks will be
 released Wednesdays and will be due the following Friday night (10 days). If
-you turn it in early -- the following Tuesday night (7 days) -- you will
+you turn it in early -- the following Wednesday (7 days) -- you will
 receive an additional 10% of your grade. There are no late days.
 
 You are expected to work on the programming labs by yourself. You may discuss
@@ -55,10 +55,10 @@ If you are unsure about what is allowed, please ask the course staff.
 We will have a 5 written homeworks and 5 programming labs. They equally count
 towards 35% of your grade.
 
-### Tentative assignment release dates
+### Tentative release dates for assignments
 
 All assignments and solutions will be posted on Piazza. All are to be turned in
-via gradescope.
+via gradescope. We will be releasing them on the following dates:
 
 - Written homeworks: Jan 17, Jan 24, Jan 31, Feb 14, Feb 20
 - Programming labs: Jan 12, Jan 26, Feb 09, Feb 23, Mar 09

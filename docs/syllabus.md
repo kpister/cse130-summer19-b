@@ -10,3 +10,8 @@
 | Feb 27 <br/> Mar 01 |  Control flow, continuations, monads                 | Control flow, continuations, monads (cont)     |
 | Mar 06 <br/> Mar 08 |  Rust crash course                                   | Concurrency (cont)                             | Rust crash course (cont)
 | Mar 13 <br/> Mar 15 |  Concurrency (cont)                                  | Concurrency (cont)                             |
+
+### Tenative release dates for assignments:
+
+- **Written homeworks:** Jan 17, Jan 24, Jan 31, Feb 14, Feb 20
+- **Programming labs:** Jan 12, Jan 26, Feb 09, Feb 23, Mar 09
