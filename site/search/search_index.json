@@ -74,6 +74,26 @@
             "location": "/contact/#teaching-assistants", 
             "text": "Name:  Kaiser Pister  Office hours:  Monday at TBA in TBA  Name:  Purag Moumdjian  Office hours:  Tuesday at TBA in TBA  Name:  Nadah Feteih  Office hours:  Wednesday at TBA in TBA  Name:  Sanjeev T Reddy  Office hours:  Thursday at TBA in TBA  Name:  Abdulrahman Alkhelaifi  Office hours:  Friday at TBA in TBA", 
             "title": "Teaching Assistants"
+        }, 
+        {
+            "location": "/lectures/week1/", 
+            "text": "Lecture slides and code\n\n\n\n\nIntroduction: \npdf\n, \nkey\n\n\nJavaScript in a Nutshell: \npdf\n, \nkey\n\n\n\n\nRecommended reading\n\n\nIf you have not worked with JavaScript before, take some time to familiarize\nyourself with the basics of the language, as most of the labs in this class\nwill be in JavaScript.\n\n\nWe recommend the \nMozilla Developer Network's JavaScript\nGuide\n, but\nthere are many other tutorials on the Internet.\n\n\nDave Herman's \nEffective JavaScript\n is very good\nreference that covers a lot of the JavaScript intricacies.  You will not this\nfor the class, but if you end up writing JavaScript code in the outside world,\nthis book is must-read.\n\n\nAdditional resources/reading for the curious\n\n\n\n\nBlock\n  bindings\n\n  and the difference between \nvar\n, \nlet\n, and \nconst\n.\n\n\nWhy a language like JavaScript took over the world? Not that uncommon, see\n  \nThe Rise of \"Worse is\n  Better\"\n.\n\n\nClosures\n\n  explained; see, especially the creating closures in a loop section.\n\n\nPrivate properties in (modern) JavaScript\n; we will revisit the idea of private properties (encapsulation) later in the course.\n\n\nShort intro to memory management for\n  JavaScript\n\n\nES6 In Depth\n contains\n  more information on the more recent features introduced to JavaScript.\n\n\nArrow functions\n.", 
+            "title": "Week 1"
+        }, 
+        {
+            "location": "/lectures/week1/#lecture-slides-and-code", 
+            "text": "Introduction:  pdf ,  key  JavaScript in a Nutshell:  pdf ,  key", 
+            "title": "Lecture slides and code"
+        }, 
+        {
+            "location": "/lectures/week1/#recommended-reading", 
+            "text": "If you have not worked with JavaScript before, take some time to familiarize\nyourself with the basics of the language, as most of the labs in this class\nwill be in JavaScript.  We recommend the  Mozilla Developer Network's JavaScript\nGuide , but\nthere are many other tutorials on the Internet.  Dave Herman's  Effective JavaScript  is very good\nreference that covers a lot of the JavaScript intricacies.  You will not this\nfor the class, but if you end up writing JavaScript code in the outside world,\nthis book is must-read.", 
+            "title": "Recommended reading"
+        }, 
+        {
+            "location": "/lectures/week1/#additional-resourcesreading-for-the-curious", 
+            "text": "Block\n  bindings \n  and the difference between  var ,  let , and  const .  Why a language like JavaScript took over the world? Not that uncommon, see\n   The Rise of \"Worse is\n  Better\" .  Closures \n  explained; see, especially the creating closures in a loop section.  Private properties in (modern) JavaScript ; we will revisit the idea of private properties (encapsulation) later in the course.  Short intro to memory management for\n  JavaScript  ES6 In Depth  contains\n  more information on the more recent features introduced to JavaScript.  Arrow functions .", 
+            "title": "Additional resources/reading for the curious"
         }
     ]
 }

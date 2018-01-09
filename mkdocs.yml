@@ -36,3 +36,5 @@ pages:
   - Syllabus: syllabus.md
   - Organization: about.md
   - Contact information: contact.md
+  - Lectures:
+        - Week 1: 'lectures/week1/index.md'
