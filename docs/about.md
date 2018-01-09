@@ -6,7 +6,7 @@ features. We will use real-world languages (e.g., JavaScript, Haskell, C++, and
 Rust) to explore the different concepts. But, we will not cover any one
 language in full -- this course is not meant to make you a proficient
 programmer, learning how to proficiently program in any of these languages is a
-course in of itself.
+course in and of itself.
 
 
 ## Grading
