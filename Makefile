@@ -6,3 +6,8 @@ publish: build
 	ssh dstefan@login.eng.ucsd.edu 'cd public_html/cse130-winter18/ && git fetch && git reset --hard origin/site'
 remove:
 	git push origin :site
+serve:
+	mkdocs serve
+install:
+	sudo pip install mkdocs
+	sudo pip install mkdocs-material
