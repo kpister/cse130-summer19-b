@@ -1,6 +1,6 @@
 | **Week of **        | <center>**Tuesday**</center>                         | <center>**Thursday**</center>                  | <center>**Friday (section)**</center>        |
 |:--------------------|:-----------------------------------------------------|:-----------------------------------------------|:---------------------------------------------|
-| Jan 09 <br/> Jan 11 |  Intro and JavaScript crash course                   | High-order functions                           |
+| Jan 09 <br/> Jan 11 |  JavaScript and high-order functions                 | JavaScript and high-order functions (cont)     |
 | Jan 16 <br/> Jan 18 |  Lambda calculus                                     | Lambda calculus (cont)                         | 
 | Jan 23 <br/> Jan 25 |  Scope, storage management, function implementation  | Haskell crash course                           | Haskell crash course (cont)
 | Jan 30 <br/> Feb 01 |  Type polymorphism and type inference                | Type polymorphism and type inference (cont)    | Midterm review
