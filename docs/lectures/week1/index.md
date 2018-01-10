@@ -14,9 +14,9 @@ Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide), but
 there are many other tutorials on the Internet.
 
 Dave Herman's [Effective JavaScript](http://effectivejs.com/) is very good
-reference that covers a lot of the JavaScript intricacies.  You will not this
-for the class, but if you end up writing JavaScript code in the outside world,
-this book is must-read.
+reference that covers a lot of the JavaScript intricacies.  You will not need
+this for the class, but if you end up writing JavaScript code in the outside
+world, this book is must-read.
 
 ### Additional resources/reading for the curious
 
@@ -30,10 +30,11 @@ this book is must-read.
   explained; see, especially the creating closures in a loop section.
 - [Private properties in (modern) JavaScript](https://curiosity-driven.org/private-properties-in-javascript); we will revisit the idea of private properties (encapsulation) later in the course.
 - [Short intro to memory management for
-  JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
+  JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management).
 - [ES6 In Depth](https://hacks.mozilla.org/category/es6-in-depth/) contains
   more information on the more recent features introduced to JavaScript.
 - [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
+- [JavaScript No-No's](jsnotes/js_nono.md).
 
 ### Source code used in class
 
