@@ -34,3 +34,100 @@ this book is must-read.
 - [ES6 In Depth](https://hacks.mozilla.org/category/es6-in-depth/) contains
   more information on the more recent features introduced to JavaScript.
 - [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
+
+### Source code used in class
+
+Below you'll find the source files we used during lecture. You can run these
+with [Node.js](https://nodejs.org/en/).
+
+
+#### Scoping
+
+Block scoping in modern JS:
+```javascript
+{!lectures/week1/code/scoping/scope-modern.js!}
+```
+
+Function (but not block) scoping for `var`s:
+```javascript
+{!lectures/week1/code/scoping/scope-var.js!}
+```
+
+Mimicking block scoping with functions:
+```javascript
+{!lectures/week1/code/scoping/scope-modernize-var.js!}
+```
+
+Now, with arrow functions:
+```javascript
+{!lectures/week1/code/scoping/scope-modernize-var-pretty.js!}
+```
+
+#### Performance
+
+Without high-order functions, we'd perform reads and write synchronously:
+```javascript
+{!lectures/week1/code/performance/perf-sync.js!}
+```
+
+Passing (callback) functions as arguments allows the runtime system to call our function whenever it's ready. This allows it to perform IO concurrently and more efficiently:
+```javascript
+{!lectures/week1/code/performance/perf-async.js!}
+```
+
+Once we can return functions we can also express our code more compactly too:
+```javascript
+{!lectures/week1/code/performance/perf-async-2.js!}
+```
+
+And, slightly cleaner:
+```javascript
+{!lectures/week1/code/performance/perf-async-3.js!}
+```
+
+#### Expressiveness
+
+High-order functions enables expressiveness:
+```javascript
+{!lectures/week1/code/expressive/expressive.js!}
+```
+
+It also can enable more efficient code:
+```javascript
+{!lectures/week1/code/expressive/hof.js!}
+```
+
+#### Abstraction
+
+We can also use functions to implement module systems.
+
+Consider a simple module in Node.js:
+```javascript
+{!lectures/week1/code/modules/module-node.js!}
+```
+
+This module can be loaded with `require`, which is (very) roughly implemented
+as follows:
+```javascript
+{!lectures/week1/code/modules/module.js!}
+```
+
+#### Objects
+
+We'll be looking at objects later in the class. Objects can be expressed
+ad-hoc, using object literal notation:
+```javascript
+{!lectures/week1/code/receiver/receiver.js!}
+```
+
+But we can (again) use functions to construct objects:
+```javascript
+{!lectures/week1/code/class/class-old.js!}
+```
+
+More recently, however, JavaScript adopted classes. You can think of them as
+being *syntactic sugar* for the above:
+
+```javascript
+{!lectures/week1/code/class/class-new.js!}
+```
