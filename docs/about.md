@@ -35,7 +35,7 @@ You are expected to work on written assignments in groups of 3. All written
 homework must be typeset and submitted as a PDF using the online submission
 tool.  All written assignments must be submitted as a group.  Homeworks will be
 released Wednesdays and will be due the following Friday night (10 days). If
-you turn it in early -- the following Wednesday (7 days) -- you will
+you turn it in early -- the following Tuesday (7 days) -- you will
 receive an additional 10% of your grade. There are no late days.
 
 You are expected to work on the programming labs by yourself. You may discuss
