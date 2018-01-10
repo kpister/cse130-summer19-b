@@ -277,6 +277,54 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#source-code-used-in-class" title="Source code used in class" class="md-nav__link">
+    Source code used in class
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scoping" title="Scoping" class="md-nav__link">
+    Scoping
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance" title="Performance" class="md-nav__link">
+    Performance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expressiveness" title="Expressiveness" class="md-nav__link">
+    Expressiveness
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abstraction" title="Abstraction" class="md-nav__link">
+    Abstraction
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objects" title="Objects" class="md-nav__link">
+    Objects
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
     </ul>
@@ -330,6 +378,54 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#source-code-used-in-class" title="Source code used in class" class="md-nav__link">
+    Source code used in class
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scoping" title="Scoping" class="md-nav__link">
+    Scoping
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance" title="Performance" class="md-nav__link">
+    Performance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expressiveness" title="Expressiveness" class="md-nav__link">
+    Expressiveness
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abstraction" title="Abstraction" class="md-nav__link">
+    Abstraction
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objects" title="Objects" class="md-nav__link">
+    Objects
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
     </ul>
@@ -380,6 +476,383 @@ this book is must-read.</p>
   more information on the more recent features introduced to JavaScript.</li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">Arrow functions</a>.</li>
 </ul>
+<h3 id="source-code-used-in-class">Source code used in class<a class="headerlink" href="#source-code-used-in-class" title="Permanent link">&para;</a></h3>
+<p>Below you'll find the source files we used during lecture. You can run these
+with <a href="https://nodejs.org/en/">Node.js</a>.</p>
+<h4 id="scoping">Scoping<a class="headerlink" href="#scoping" title="Permanent link">&para;</a></h4>
+<p>Block scoping in modern JS:</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">hello</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`A: x = </span><span class="si">${</span><span class="nx">x</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span> <span class="c1">// ??</span>
+  <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">45</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`B: x = </span><span class="si">${</span><span class="nx">x</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span> <span class="c1">// ??</span>
+  <span class="p">}</span>
+  <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`C: x = </span><span class="si">${</span><span class="nx">x</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span> <span class="c1">// ??</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">hello</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+</pre></div>
+
+
+<p>Function (but not block) scoping for <code>var</code>s:</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">hello</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`A: x = </span><span class="si">${</span><span class="nx">x</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span> <span class="c1">// ??</span>
+  <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">45</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`B: x = </span><span class="si">${</span><span class="nx">x</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span> <span class="c1">// ??</span>
+  <span class="p">}</span>
+  <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`C: x = </span><span class="si">${</span><span class="nx">x</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span> <span class="c1">// ??</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">hello</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+</pre></div>
+
+
+<p>Mimicking block scoping with functions:</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">hello</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`A: x = </span><span class="si">${</span><span class="nx">x</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span> <span class="c1">// ??</span>
+  <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">45</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`B: x = </span><span class="si">${</span><span class="nx">x</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span> <span class="c1">// ??</span>
+  <span class="p">})();</span>
+  <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`C: x = </span><span class="si">${</span><span class="nx">x</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span> <span class="c1">// ??</span>
+  <span class="p">})();</span>
+<span class="p">}</span>
+
+<span class="nx">hello</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+</pre></div>
+
+
+<p>Now, with arrow functions:</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">hello</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`A: x = </span><span class="si">${</span><span class="nx">x</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span> <span class="c1">// ??</span>
+  <span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">45</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`B: x = </span><span class="si">${</span><span class="nx">x</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span> <span class="c1">// ??</span>
+  <span class="p">})();</span>
+  <span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`C: x = </span><span class="si">${</span><span class="nx">x</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span> <span class="c1">// ??</span>
+  <span class="p">})();</span>
+<span class="p">}</span>
+
+<span class="nx">hello</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+</pre></div>
+
+
+<h4 id="performance">Performance<a class="headerlink" href="#performance" title="Permanent link">&para;</a></h4>
+<p>Without high-order functions, we'd perform reads and write synchronously:</p>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">r1</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="s1">&#39;./perf-sync.js&#39;</span><span class="p">,</span> <span class="s1">&#39;utf8&#39;</span><span class="p">);</span> <span class="c1">// blocks until read is done</span>
+<span class="nx">processFile</span><span class="p">(</span><span class="s1">&#39;perf-sync.js&#39;</span><span class="p">,</span> <span class="nx">r1</span><span class="p">);</span> <span class="c1">// blocks until processing (write) is done</span>
+<span class="kr">const</span> <span class="nx">r2</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="s1">&#39;./perf-async.js&#39;</span><span class="p">,</span> <span class="s1">&#39;utf8&#39;</span><span class="p">);</span> <span class="c1">// etc.</span>
+<span class="nx">processFile</span><span class="p">(</span><span class="s1">&#39;perf-async.js&#39;</span><span class="p">,</span> <span class="nx">r2</span><span class="p">);</span>
+
+<span class="c1">// note that you can declare a function after the point it&#39;s used. Hoisting</span>
+<span class="c1">// essentially moves it to the top.</span>
+<span class="kd">function</span> <span class="nx">processFile</span><span class="p">(</span><span class="nx">fname</span><span class="p">,</span> <span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="sb">`/tmp/</span><span class="si">${</span><span class="nx">fname</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span> <span class="nx">str</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`DONE writing /tmp/</span><span class="si">${</span><span class="nx">fname</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Passing (callback) functions as arguments allows the runtime system to call our function whenever it's ready. This allows it to perform IO concurrently and more efficiently:</p>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">);</span>
+
+<span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s1">&#39;./perf-sync.js&#39;</span><span class="p">,</span> <span class="s1">&#39;utf8&#39;</span><span class="p">,</span> <span class="nx">cb1</span><span class="p">);</span> <span class="c1">// returns immediately, cb1 is queued on the event loop and called later when actual file read is done</span>
+<span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s1">&#39;./perf-async.js&#39;</span><span class="p">,</span> <span class="s1">&#39;utf8&#39;</span><span class="p">,</span> <span class="nx">cb2</span><span class="p">);</span> <span class="c1">// returns immediately, &quot; &quot;</span>
+
+<span class="kd">function</span> <span class="nx">processFile</span><span class="p">(</span><span class="nx">fname</span><span class="p">,</span> <span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="sb">`/tmp/</span><span class="si">${</span><span class="nx">fname</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span> <span class="nx">str</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`DONE writing /tmp/</span><span class="si">${</span><span class="nx">fname</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">cb1</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">processFile</span><span class="p">(</span><span class="s1">&#39;perf-sync.js&#39;</span><span class="p">,</span> <span class="nx">str</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">cb2</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">processFile</span><span class="p">(</span><span class="s1">&#39;perf-async.js&#39;</span><span class="p">,</span> <span class="nx">str</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Once we can return functions we can also express our code more compactly too:</p>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">);</span>
+
+<span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s1">&#39;./perf-sync.js&#39;</span><span class="p">,</span> <span class="s1">&#39;utf8&#39;</span><span class="p">,</span> <span class="nx">processFile</span><span class="p">(</span><span class="s1">&#39;perf-sync.js&#39;</span><span class="p">));</span>
+<span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s1">&#39;./perf-async.js&#39;</span><span class="p">,</span> <span class="s1">&#39;utf8&#39;</span><span class="p">,</span> <span class="nx">processFile</span><span class="p">(</span><span class="s1">&#39;perf-async.js&#39;</span><span class="p">));</span>
+
+<span class="kd">function</span> <span class="nx">processFile</span><span class="p">(</span><span class="nx">fname</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">str</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="sb">`/tmp/</span><span class="si">${</span><span class="nx">fname</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span> <span class="nx">str</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`DONE writing /tmp/</span><span class="si">${</span><span class="nx">fname</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>And, slightly cleaner:</p>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">);</span>
+
+<span class="nx">readAndProcessFile</span><span class="p">(</span><span class="s1">&#39;perf-sync.js&#39;</span><span class="p">);</span>
+<span class="nx">readAndProcessFile</span><span class="p">(</span><span class="s1">&#39;perf-async.js&#39;</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">readAndProcessFile</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="sb">`./</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span> <span class="s1">&#39;utf8&#39;</span><span class="p">,</span> <span class="nx">processFile</span><span class="p">(</span><span class="nx">name</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">processFile</span><span class="p">(</span><span class="nx">fname</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">str</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="sb">`/tmp/</span><span class="si">${</span><span class="nx">fname</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span> <span class="nx">str</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`DONE writing /tmp/</span><span class="si">${</span><span class="nx">fname</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h4 id="expressiveness">Expressiveness<a class="headerlink" href="#expressiveness" title="Permanent link">&para;</a></h4>
+<p>High-order functions enables expressiveness:</p>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">filter</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">el</span><span class="p">)</span> <span class="p">{</span> 
+  <span class="k">return</span> <span class="nx">el</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}));</span> <span class="c1">// ??</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span> <span class="nx">el</span> <span class="p">=&gt;</span> <span class="p">{</span> 
+  <span class="k">return</span> <span class="nx">el</span> <span class="o">+</span> <span class="mi">42</span><span class="p">;</span>
+<span class="p">}));</span> <span class="c1">// ??</span>
+
+
+<span class="kd">function</span> <span class="nx">filter</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span> <span class="nx">pred</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">dup</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">list</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">pred</span><span class="p">(</span><span class="nx">list</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span> <span class="p">{</span>
+      <span class="nx">dup</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">list</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">dup</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">map</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span> <span class="nx">f</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">dup</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">list</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">dup</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="nx">f</span><span class="p">(</span><span class="nx">list</span><span class="p">[</span><span class="nx">i</span><span class="p">]));</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">dup</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>It also can enable more efficient code:</p>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+
+<span class="kr">const</span> <span class="nx">add42</span> <span class="o">=</span> <span class="p">(</span><span class="nx">el</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">el</span> <span class="o">+</span> <span class="mi">42</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">mul1337</span> <span class="p">(</span><span class="nx">el</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">el</span> <span class="o">*</span> <span class="mi">1337</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">(</span><span class="nx">map</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span> <span class="nx">add42</span><span class="p">),</span> <span class="nx">mul1337</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span> <span class="nx">compose</span><span class="p">(</span><span class="nx">mul1337</span><span class="p">,</span> <span class="nx">add42</span><span class="p">)));</span>
+
+<span class="kd">function</span> <span class="nx">compose</span> <span class="p">(</span><span class="nx">f</span><span class="p">,</span> <span class="nx">g</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> 
+    <span class="k">return</span> <span class="nx">f</span><span class="p">(</span><span class="nx">g</span><span class="p">(</span><span class="nx">x</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">map</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span> <span class="nx">f</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">dup</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">list</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">dup</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="nx">f</span><span class="p">(</span><span class="nx">list</span><span class="p">[</span><span class="nx">i</span><span class="p">]));</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">dup</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h4 id="abstraction">Abstraction<a class="headerlink" href="#abstraction" title="Permanent link">&para;</a></h4>
+<p>We can also use functions to implement module systems.</p>
+<p>Consider a simple module in Node.js:</p>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">secret</span> <span class="o">=</span> <span class="s2">&quot;cse130 is fun!&quot;</span><span class="p">;</span> <span class="c1">// scoped to this function, hidden to outside world</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">myVar</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">myFunc</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">===</span> <span class="nx">secret</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;yes!&#39;</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;guess again!&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>This module can be loaded with <code>require</code>, which is (very) roughly implemented
+as follows:</p>
+<div class="codehilite"><pre><span></span><span class="c1">// using node&#39;s requie:</span>
+<span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">mod</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./module-node.js&#39;</span><span class="p">);</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mod</span><span class="p">.</span><span class="nx">myVar</span><span class="p">);</span> <span class="c1">// ??</span>
+  <span class="nx">mod</span><span class="p">.</span><span class="nx">myFunc</span><span class="p">(</span><span class="s2">&quot;what?&quot;</span><span class="p">);</span> <span class="c1">// ??</span>
+  <span class="nx">mod</span><span class="p">.</span><span class="nx">myFunc</span><span class="p">(</span><span class="s2">&quot;cse130 is fun!&quot;</span><span class="p">);</span> <span class="c1">// ??</span>
+<span class="p">}</span>
+
+<span class="c1">// using our fake require:</span>
+<span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">mod</span> <span class="o">=</span> <span class="nx">requireMyModule</span><span class="p">();</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mod</span><span class="p">.</span><span class="nx">myVar</span><span class="p">);</span> <span class="c1">// ??</span>
+  <span class="nx">mod</span><span class="p">.</span><span class="nx">myFunc</span><span class="p">(</span><span class="s2">&quot;what?&quot;</span><span class="p">);</span> <span class="c1">// ??</span>
+  <span class="nx">mod</span><span class="p">.</span><span class="nx">myFunc</span><span class="p">(</span><span class="s2">&quot;cse130 is fun!&quot;</span><span class="p">);</span> <span class="c1">// ??</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">myModule</span><span class="p">(</span><span class="nx">exports</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// same code as module-node.js:</span>
+  <span class="kr">const</span> <span class="nx">secret</span> <span class="o">=</span> <span class="s2">&quot;cse130 is fun!&quot;</span><span class="p">;</span> <span class="c1">// scoped to this function, hidden to outside world</span>
+  <span class="nx">exports</span><span class="p">.</span><span class="nx">myVar</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+  <span class="nx">exports</span><span class="p">.</span><span class="nx">myFunc</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">===</span> <span class="nx">secret</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;yes!&#39;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;guess again!&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">requireMyModule</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// create new object that will be populated by the module</span>
+  <span class="kr">const</span> <span class="nx">exports</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="nx">myModule</span><span class="p">(</span><span class="nx">exports</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">exports</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h4 id="objects">Objects<a class="headerlink" href="#objects" title="Permanent link">&para;</a></h4>
+<p>We'll be looking at objects later in the class. Objects can be expressed
+ad-hoc, using object literal notation:</p>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;x-w00t&quot;</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="nx">x</span><span class="o">:</span> <span class="mi">1337</span><span class="p">,</span>
+  <span class="nx">f</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">x</span><span class="o">++</span><span class="p">;</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span> <span class="c1">// ??</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">f</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span> <span class="c1">// ??</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]);</span> <span class="c1">// ??</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">[</span><span class="s2">&quot;x-w00t&quot;</span><span class="p">])</span> <span class="c1">// ??</span>
+</pre></div>
+
+
+<p>But we can (again) use functions to construct objects:</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">Car</span><span class="p">(</span><span class="nx">make</span><span class="p">,</span> <span class="nx">model</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">make</span> <span class="o">=</span> <span class="nx">make</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">model</span> <span class="o">=</span> <span class="nx">model</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">toString</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">make</span><span class="si">}</span><span class="sb">@</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+<span class="nx">Car</span><span class="p">.</span><span class="nx">mySweetProp</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">f</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Car</span><span class="p">(</span><span class="s2">&quot;Ford&quot;</span><span class="p">,</span> <span class="s2">&quot;Focus&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">f</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+<span class="kr">const</span> <span class="nx">t</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Car</span><span class="p">(</span><span class="s2">&quot;Toyota&quot;</span><span class="p">,</span> <span class="s2">&quot;Corola&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">t</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+
+<span class="c1">// Car.prototype is shared by all objects created by calling new Car(...)</span>
+<span class="c1">// That&#39;s right you can treat functions like objects!</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">f</span><span class="p">.</span><span class="nx">__proto__</span> <span class="o">===</span> <span class="nx">Car</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span> <span class="c1">// ??</span>
+
+<span class="c1">// Let&#39;s define property common to all cars:</span>
+<span class="nx">Car</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">f</span><span class="p">.</span><span class="nx">color</span><span class="p">);</span> <span class="c1">// ??</span>
+<span class="c1">// getProperty &quot;color&quot; of f</span>
+<span class="c1">//     if it has it, return it</span>
+<span class="c1">//     else getProperty &quot;color&quot; of f.__proto__</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">t</span><span class="p">.</span><span class="nx">color</span><span class="p">);</span> <span class="c1">// ??</span>
+
+<span class="c1">// Can override the default color that is defined on the prototype:</span>
+
+<span class="nx">t</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">t</span><span class="p">.</span><span class="nx">color</span><span class="p">);</span> <span class="c1">// ??</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">f</span><span class="p">.</span><span class="nx">color</span><span class="p">);</span> <span class="c1">// ??</span>
+
+<span class="c1">// We can define a method on the prototype:</span>
+
+<span class="nx">Car</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toColorString</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">make</span><span class="si">}</span><span class="sb">, </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="si">}</span><span class="sb">, </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">color</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">f</span><span class="p">.</span><span class="nx">toColorString</span><span class="p">());</span> <span class="c1">// ??</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">t</span><span class="p">.</span><span class="nx">toColorString</span><span class="p">());</span> <span class="c1">// ??</span>
+</pre></div>
+
+
+<p>More recently, however, JavaScript adopted classes. You can think of them as
+being <em>syntactic sugar</em> for the above:</p>
+<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">Car</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">make</span><span class="p">,</span> <span class="nx">model</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">make</span> <span class="o">=</span> <span class="nx">make</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">model</span> <span class="o">=</span> <span class="nx">model</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nx">toString</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">make</span><span class="si">}</span><span class="sb">@</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="kr">static</span> <span class="nx">get</span> <span class="nx">mySweetProp</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">42</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">f</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Car</span><span class="p">(</span><span class="s2">&quot;Ford&quot;</span><span class="p">,</span> <span class="s2">&quot;Focus&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">f</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+<span class="kr">const</span> <span class="nx">t</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Car</span><span class="p">(</span><span class="s2">&quot;Toyota&quot;</span><span class="p">,</span> <span class="s2">&quot;Corola&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">t</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+
+<span class="c1">// Car.prototype is shared by all objects created by calling new Car(...)</span>
+<span class="c1">// That&#39;s right you can treat functions like objects!</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">f</span><span class="p">.</span><span class="nx">__proto__</span> <span class="o">===</span> <span class="nx">Car</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span> <span class="c1">// ??</span>
+
+<span class="c1">// We can define property common to all cars as before:</span>
+<span class="nx">Car</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">f</span><span class="p">.</span><span class="nx">color</span><span class="p">);</span> <span class="c1">// ??</span>
+<span class="c1">// getProperty &quot;color&quot; of f</span>
+<span class="c1">//     if it has it, return it</span>
+<span class="c1">//     else getProperty &quot;color&quot; of f.__proto__</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">t</span><span class="p">.</span><span class="nx">color</span><span class="p">);</span> <span class="c1">// ??</span>
+
+<span class="c1">// Can override the default color that is defined on the prototype:</span>
+
+<span class="nx">t</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">t</span><span class="p">.</span><span class="nx">color</span><span class="p">);</span> <span class="c1">// ??</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">f</span><span class="p">.</span><span class="nx">color</span><span class="p">);</span> <span class="c1">// ??</span>
+
+<span class="c1">// We can define a method on the prototype as before:</span>
+
+<span class="nx">Car</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toColorString</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">make</span><span class="si">}</span><span class="sb">, </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="si">}</span><span class="sb">, </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">color</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">f</span><span class="p">.</span><span class="nx">toColorString</span><span class="p">());</span> <span class="c1">// ??</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">t</span><span class="p">.</span><span class="nx">toColorString</span><span class="p">());</span> <span class="c1">// ??</span>
+</pre></div>
                 
                   
                 
