@@ -22,7 +22,7 @@ post a private question or contact the course staff by email.
 - **Office hours:** Tuesday at TBA in TBA
 <hr/>
 - **Name:** Nadah Feteih
-- **Office hours:** Wednesday at TBA in TBA
+- **Office hours:** Wednesday 1-2PM, CSE B260A
 <hr/>
 - **Name:** Sanjeev T Reddy
 - **Office hours:** Thursday at TBA in TBA
