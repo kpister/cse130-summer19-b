@@ -1,11 +1,11 @@
 function hello(x) {
-  console.log(`A: x = ${x}`); // ??
+  console.log(`A: x = ${x}`); // 42
   {
     let x = 45;
-    console.log(`B: x = ${x}`); // ??
+    console.log(`B: x = ${x}`); // 45
   }
   {
-    console.log(`C: x = ${x}`); // ??
+    console.log(`C: x = ${x}`); // 42
   }
 }
 

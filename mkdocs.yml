@@ -40,3 +40,5 @@ pages:
   - Contact information: contact.md
   - Lectures:
         - Week 1: 'lectures/week1/index.md'
+  - Additional notes:
+    - JavaScript No No's: 'notes/js_nono.md'
