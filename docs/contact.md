@@ -16,7 +16,7 @@ post a private question or contact the course staff by email.
 ##### Teaching Assistants
 
 - **Name:** Kaiser Pister
-- **Office hours:** Monday at 6-8pm in B240A
+- **Office hours:** Monday 6-8PM, CSE B240A
 <hr/>
 - **Name:** Purag Moumdjian
 - **Office hours:** Tuesday at TBA in TBA
@@ -25,7 +25,7 @@ post a private question or contact the course staff by email.
 - **Office hours:** Wednesday 1-2PM, CSE B260A
 <hr/>
 - **Name:** Sanjeev T Reddy
-- **Office hours:** Thursday at TBA in TBA
+- **Office hours:** Thursday 5-6PM, CSE B240A
 <hr/>
 - **Name:** Abdulrahman Alkhelaifi
 - **Office hours:** Friday at TBA in TBA
