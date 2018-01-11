@@ -16,7 +16,7 @@ post a private question or contact the course staff by email.
 ##### Teaching Assistants
 
 - **Name:** Kaiser Pister
-- **Office hours:** Monday at TBA in TBA
+- **Office hours:** Monday at 6-8pm in B240A
 <hr/>
 - **Name:** Purag Moumdjian
 - **Office hours:** Tuesday at TBA in TBA
