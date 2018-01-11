@@ -9,9 +9,14 @@ function processFile(fname, str) {
 }
 
 function cb1(err, str) {
+  // line cb1.1
   processFile('perf-sync.js', str);
 }
 
 function cb2(err, str) {
+  //line cb2.1
   processFile('perf-async.js', str);
 }
+
+Can cb2 execute before cb1?
+A: yes, B: no
