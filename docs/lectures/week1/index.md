@@ -34,7 +34,7 @@ world, this book is must-read.
 - [ES6 In Depth](https://hacks.mozilla.org/category/es6-in-depth/) contains
   more information on the more recent features introduced to JavaScript.
 - [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
-- [JavaScript No-No's](js_nono.md).
+- [JavaScript No-No's](notes/js_nono.md).
 
 ### Source code used in class
 
