@@ -1,4 +1,6 @@
-### JavaScript fundamentals revisited
+### JavaScript fundamentals revisited by Purag Moumdjian
+
+Below are the notes from the discussion section.
 
 #### The `global` object
 
@@ -38,19 +40,26 @@ fixed. We'll revisit this in detail throughout the quarter.
 Before classes were native to JavaScript, we would use plain old functions to
 construct objects. These are called *function constructors*. When we invoke any
 function with the `new` keyword (i.e. `new Car()`), `this` is automatically
-bound to a newly created object with `Car`'s prototype, allowing us to specify
-instance data attached to `this` inside a function constructor.
+bound to a newly created object (whose prototype `__proto__` is `Car.prototype`),
+allowing us to specify instance data attached to `this` inside a function
+constructor.
 
-Since functions create a new scope in JavaScript, and since JavaScript supports
-closures, we can create "hidden"/private fields and methods just by declaring
-local variables and functions. These are only visible in the scope of the
-function, and due to closures, can be accessed even after the object is created
-and we return from the function constructor.
+Since functions create a new scope in JavaScript, and since JavaScript
+functions are closures, we can create "hidden"/private fields and methods just
+by declaring local variables and functions. These are only visible in the scope
+of the function, and because functions are closures and capture the
+environment, these "fields" and "methods" can be accessed even after the object
+is created.
 
 One caveat is that each instance of the object will have its own copy of every
 private method, and if you want a public method that uses a private method, each
-object needs a copy of that, too, since the public method will have to share the
+object needs a copy of that, too -- the public method will have to share the
 scope of the private method.
+
+This is not the way you want to manage private field, it's just an
+illustration. See [this blog
+post](https://curiosity-driven.org/private-properties-in-javascript) for a
+discussion.
 
 ```javascript
 {!discussions/week1/code/03.classes.js!}
@@ -58,11 +67,12 @@ scope of the private method.
 
 #### Hoisting
 
-JavaScript "hoists" `var` and `function` declarations to the top of the current
-scope. This behavior may or not be desired, but if you want to avoid it, just
-use `let` and `const` to declare variables, as they are not hoisted -- in other
-words, they create a new scope only once they executed, and these scopes end
-as soon as the surrounding block ends.
+JavaScript *hoists* `var` declaration and `function` declarations and
+definitions to the top of the current scope. This behavior may or not be
+desired, but if you want to avoid it, just use `let` and `const` to declare
+variables, as they are not hoisted -- in other words, they create a new scope
+only once they executed, and these scopes end as soon as the surrounding block
+ends.
 
 ```javascript
 {!discussions/week1/code/04.hoisting.js!}
@@ -70,16 +80,11 @@ as soon as the surrounding block ends.
 
 #### Functions/Callbacks/Arrow Notation
 
-In JavaScript, functions are objects, so we can call methods and access fields
-on functions themselves. JavaScript also supports closures, which is just the
-idea of a scope persisting after it ends.
-
-Below, we have a function constructor
-for `Car`, and in the constructor we create methods `getMake` and `getModel`
-which access the arguments of the function. We return the new object to the
-caller and the function's scope ends, but subsequent calls to `getMake` and
-`getModel` will still have access to the arguments from the function's scope
-due to closure.
+Below, we have a function constructor for `Car`, and in the constructor we
+create methods `getMake` and `getModel` which access the arguments of the
+function. We return the new object to the caller and the function's scope ends,
+but subsequent calls to `getMake` and `getModel` will still have access to the
+arguments from the function's scope due to closure.
 
 For another example, see [Closure](#closure)
 
@@ -100,39 +105,7 @@ support some of these behaviors, as seen below.
 
 #### Closure
 
-Like we said before, a closure is just a persistent scope. When you call or
-create a function whose return value is (or contains) a function which accesses
-an outer scope, a closure is created, storing the values of the variables in
-scope.
-
-Here is a classic example where closure helps us achieve our desired behavior.
-Say we want to create a list of functions which output the numbers 0-9. A first
-approach is seen below, with #1. What happens when we execute all of the
-functions?
-
-As you may have noticed, all of the functions print `10`. We can see why by
-looking at #2. Say we have a function which prints the value of a variable `i`,
-and between calls we change the value of that variable. It's completely
-reasonable for subsequent calls to print a different value.
-
-This is all that's happening here. When we actually call the functions in #1,
-they dynamically look up the value of `i`, but it has been incremented up to
-`10`.
-
-A very simple way to fix this is by using `let` instead of `var` to declare the
-loop variable. With `let`, each iteration gets its own declaration of `i` whose
-value is fixed. Then, when we create the function and put it in the array, we
-create a closure, storing the value of `i` for that block.
-
-Another way to fix this: we can use an immediately-invoked function expression
-(IIFE) to create a closure which contains a fixed value of `i` in each
-iteration. Then, when we call the functions after the loop, each one looks for
-the value of `i` in its closure, where its value is fixed to the value of `i` in
-the iteration we created it in.
-
-Another way to get the behavior we want is using `bind`. This time, we print the
-argument to our function, and use `bind` to fix the value of that argument to
-the value of `i` in the iteration we created the function in.
+Below are some classical examples of closures.
 
 ```javascript
 {!discussions/week1/code/closure.js!}
