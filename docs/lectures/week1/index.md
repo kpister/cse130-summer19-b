@@ -2,6 +2,7 @@
 
 * Introduction: [pdf](slides/intro.pdf), [key](slides/intro.key)
 * JavaScript in a Nutshell: [pdf](slides/js-nutshell.pdf), [key](slides/js-nutshell.key)
+* Discussion section notes: [here](/discussions/week1)
 
 ### Recommended reading
 
