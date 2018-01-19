@@ -127,7 +127,7 @@
         }, 
         {
             "location": "/lectures/week2/", 
-            "text": "Lecture slides\n\n\n\n\nFoundations and lambda calculus: \npdf\n, \nkey\n,\n\n\n\n\nRecommended reading\n\n\n\n\nTextbook: section 4.1.2 and section 4.2\n\n\nIntroduction to Lambda Calculus\n by Barendregt and Barendsen\n\n\nRanjit Jhala's lambda calculus \nslides\n and the\n  \nELSA\n project.", 
+            "text": "Lecture slides\n\n\n\n\nFoundations and lambda calculus: \npdf\n, \nkey\n,\n\n\n\n\nRecommended reading\n\n\n\n\nTextbook: section 4.1.2 and section 4.2\n\n\nInformal notes on the Y combinator\n\n\nIntroduction to Lambda Calculus\n by Barendregt and Barendsen\n\n\nRanjit Jhala's lambda calculus \nslides\n and the\n  \nELSA\n project.", 
             "title": "Week 2"
         }, 
         {
@@ -137,7 +137,7 @@
         }, 
         {
             "location": "/lectures/week2/#recommended-reading", 
-            "text": "Textbook: section 4.1.2 and section 4.2  Introduction to Lambda Calculus  by Barendregt and Barendsen  Ranjit Jhala's lambda calculus  slides  and the\n   ELSA  project.", 
+            "text": "Textbook: section 4.1.2 and section 4.2  Informal notes on the Y combinator  Introduction to Lambda Calculus  by Barendregt and Barendsen  Ranjit Jhala's lambda calculus  slides  and the\n   ELSA  project.", 
             "title": "Recommended reading"
         }, 
         {
