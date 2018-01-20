@@ -332,15 +332,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#semantics" title="Semantics" class="md-nav__link">
-    Semantics
+  <a href="#syntax_1" title="Syntax" class="md-nav__link">
+    Syntax
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#substitution" title="Substitution" class="md-nav__link">
-    Substitution
+  <a href="#semantics" title="Semantics" class="md-nav__link">
+    Semantics
   </a>
   
 </li>
@@ -448,15 +448,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#semantics" title="Semantics" class="md-nav__link">
-    Semantics
+  <a href="#syntax_1" title="Syntax" class="md-nav__link">
+    Syntax
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#substitution" title="Substitution" class="md-nav__link">
-    Substitution
+  <a href="#semantics" title="Semantics" class="md-nav__link">
+    Semantics
   </a>
   
 </li>
@@ -502,92 +502,136 @@
 the solutions to the practice problems we went through in discussion, 
 but come to office hours if you have any questions. </p>
 <h4 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h4>
-<p>λx.e 
-e ::=  <constant> 
-    | <variable> 
-    | (<expr> <expr>) 
-    | (λ <variable>.<expr>) </p>
+<div class="codehilite"><pre><span></span>e ::= x | (e e) | (λx.e)
+</pre></div>
+
+
 <p>Variables, applications, lambda abstractions </p>
-<p>Is λx.λy.λz.e the same as λxyz.e? 
-(x,y,z) =&gt; {}
-(x) =&gt; (y) =&gt; (z) =&gt; {}</p>
-<h4 id="semantics">Semantics<a class="headerlink" href="#semantics" title="Permanent link">&para;</a></h4>
+<p>Faking multi-argument functions.  Is <code>λx.λy.λz.e</code> the same as <code>λxyz.e</code>? No, why not. See:</p>
+<div class="codehilite"><pre><span></span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">,</span><span class="nx">z</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{}</span> <span class="cm">/* same as: */</span>
+<span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="nx">y</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="nx">z</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{}</span> <span class="cm">/* ? */</span>
+</pre></div>
+
+
+<h4 id="syntax_1">Syntax<a class="headerlink" href="#syntax_1" title="Permanent link">&para;</a></h4>
 <p>Function applications are left associative</p>
-<p>e1 e2 e3 e4 
-(((e1 e2) e3) e4)</p>
+<div class="codehilite"><pre><span></span>e1 e2 e3 e4 = (((e1 e2) e3) e4)
+</pre></div>
+
+
 <p>Parenthesis have no meanings, you can add them as much as you want following the correct rules.
 (Applications are left associative and terms are bound as far right as possible)</p>
 <p>You can only drop parenthesis if the meaning isn't ambiguous.</p>
-<h4 id="substitution">Substitution<a class="headerlink" href="#substitution" title="Permanent link">&para;</a></h4>
-<p>(λx.(λy.(x + y))) 4 5 
-Which arguments do we apply first? </p>
+<h4 id="semantics">Semantics<a class="headerlink" href="#semantics" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p><code>(λx.(λy.(x + y))) 4 5</code> which arguments do we apply first? </p>
+</li>
+<li>
 <p>Free and bound variables </p>
-<p>Capture Avoiding Substitution 
+</li>
+<li>
+<p>Capture avoiding substitution </p>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span>...
 y[x := e] = y
 (e1 e2)[x := e] = e1[x := e] e2[x := e]
-(λx.e1)[x := e] = λx.e1</p>
-<p>Alpha renaming
-λx.e = λy.e[x :=y], y != FV(e)</p>
-<p>Beta Reduction 
-(λx.e1)e2 = e1[x := e2]</p>
-<p>Eta reduction
-λx. e x = e , x != FV(e)</p>
+(λx.e1)[x := e] = λx.e1
+...
+</pre></div>
+
+
+<ul>
+<li>Alpha renaming</li>
+</ul>
+<div class="codehilite"><pre><span></span>λx.e = λy.e[x :=y], y != FV(e)
+</pre></div>
+
+
+<ul>
+<li>Beta reduction </li>
+</ul>
+<div class="codehilite"><pre><span></span>(λx.e1)e2 = e1[x := e2]
+</pre></div>
+
+
+<ul>
+<li>Eta reduction</li>
+</ul>
+<div class="codehilite"><pre><span></span>λx. e x = e , x != FV(e)
+</pre></div>
+
+
 <h4 id="evaluation-order-cbv-and-cbn">Evaluation Order (CBV and CBN)<a class="headerlink" href="#evaluation-order-cbv-and-cbn" title="Permanent link">&para;</a></h4>
-<p>Does matter which order you choose to simplify subexpressions IF it reduces to normal form?
-What does normal form mean? Can no longer beta reduce </p>
-<p>(λx.e1) e2</p>
-<p>(λx.y)Ω
+<ul>
+<li>
+<p>Does it matter which order you choose to simplify subexpressions IF it reduces to normal form?</p>
+</li>
+<li>
+<p>What does normal form mean? Can no longer beta reduce.</p>
+</li>
+<li>
+<p>Some terms cannot be reduced to normal form. For example,</p>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span>(λx.y)Ω
  ----&gt; y CBN 
- ----&gt; (λx.y)Ω CBV</p>
+ ----&gt; (λx.y)Ω CBV
+</pre></div>
+
+
 <h4 id="practice-problems">Practice Problems<a class="headerlink" href="#practice-problems" title="Permanent link">&para;</a></h4>
-<ol>
+<ul>
+<li>What doe the following produce?</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">Y</span> <span class="o">=</span> <span class="nx">f</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="nx">x</span> <span class="p">=&gt;</span> <span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">(</span><span class="nx">x</span><span class="p">)))(</span><span class="nx">x</span> <span class="p">=&gt;</span><span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">(</span><span class="nx">x</span><span class="p">)))</span>
+<span class="nx">Y</span><span class="p">(</span><span class="nx">z</span> <span class="p">=&gt;</span> <span class="mi">9</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li><code>(λx.x) (λy.x y z)</code> - what are the free variables? </li>
+</ul>
+<p>Reduce the following</p>
+<ul>
 <li>
-<p>const Y = f =&gt; (x =&gt; f(x(x)))(x =&gt;f(x(x)))
-   Y(z =&gt; 9)</p>
+<p><code>((λx.(x y))(λz.z))</code></p>
 </li>
 <li>
-<p>(λx.x) (λy.x y z) - what are the free variables? </p>
-</li>
-</ol>
-<p>Reductions</p>
-<ol>
-<li>
-<p>((λx.(x y))(λz.z))</p>
+<p><code>(λx.x)((λy.y) z)</code></p>
 </li>
 <li>
-<p>(λx.x)((λy.y) z)</p>
+<p><code>(λf.λx.(f x)) λy.y+1</code></p>
 </li>
 <li>
-<p>(λf.λx.(f x)) λy.y+1</p>
+<p><code>(λx.λy.x y)(λz.z)</code></p>
 </li>
 <li>
-<p>(λx.λy.x y)(λz.z)</p>
+<p><code>((λf.(λx.f (f x)))(λx.x+1)) 4</code></p>
 </li>
 <li>
-<p>((λf.(λx.f (f x)))(λx.x+1)) 4</p>
+<p><code>(λf.(λx.f(f x)))(λy.y+x)</code></p>
 </li>
 <li>
-<p>(λf.(λx.f(f x)))(λy.y+x)</p>
+<p><code>(λx.y)((λx.x x)(λy.y z))</code></p>
 </li>
 <li>
-<p>(λx.y)((λx.x x)(λy.y z))</p>
+<p><code>(λp.λq.λr.p q r)(λp.λq.p q r)</code></p>
 </li>
 <li>
-<p>(λp.λq.λr.p q r)(λp.λq.p q r)</p>
+<p>((λf.((λg.((f f) g))(λh.(k h))))(λx.(λy.y)))`</p>
+</li>
+</ul>
+<p>Evaluation Strategies - Reduce with CBV &amp; CBN</p>
+<ul>
+<li>
+<p><code>(λx.λy.y x)(5 + 2)(λx.x+1)</code></p>
 </li>
 <li>
-<p>((λf.((λg.((f f) g))(λh.(k h))))(λx.(λy.y)))</p>
+<p><code>(λf.f 7)((λx.x x) λy.y)</code></p>
 </li>
-</ol>
-<p>Evaluation Strategies - CBV &amp; CBN</p>
-<ol>
-<li>
-<p>(λx.λy.y x)(5 + 2)(λx.x+1)</p>
-</li>
-<li>
-<p>(λf.f 7)((λx.x x) λy.y) </p>
-</li>
-</ol>
+</ul>
                 
                   
                 
