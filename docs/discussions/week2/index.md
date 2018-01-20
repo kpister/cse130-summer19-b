@@ -1,4 +1,4 @@
-###Lambda Calc Review and Practice 
+###Lambda Calc Review and Practice by Nadah Feteih
 
 Below are some notes taken from lecture and slides. We wont be posting
 the solutions to the practice problems we went through in discussion, 

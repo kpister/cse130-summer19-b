@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2018-01-18</lastmod>
+     <lastmod>2018-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,7 +12,7 @@
     
     <url>
      <loc>/syllabus/</loc>
-     <lastmod>2018-01-18</lastmod>
+     <lastmod>2018-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -20,7 +20,7 @@
     
     <url>
      <loc>/about/</loc>
-     <lastmod>2018-01-18</lastmod>
+     <lastmod>2018-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -28,7 +28,7 @@
     
     <url>
      <loc>/contact/</loc>
-     <lastmod>2018-01-18</lastmod>
+     <lastmod>2018-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -37,13 +37,13 @@
         
     <url>
      <loc>/lectures/week1/</loc>
-     <lastmod>2018-01-18</lastmod>
+     <lastmod>2018-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/lectures/week2/</loc>
-     <lastmod>2018-01-18</lastmod>
+     <lastmod>2018-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -53,7 +53,13 @@
         
     <url>
      <loc>/discussions/week1/</loc>
-     <lastmod>2018-01-18</lastmod>
+     <lastmod>2018-01-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/discussions/week2/</loc>
+     <lastmod>2018-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -63,7 +69,7 @@
         
     <url>
      <loc>/notes/js_nono/</loc>
-     <lastmod>2018-01-18</lastmod>
+     <lastmod>2018-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
