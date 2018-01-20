@@ -43,5 +43,6 @@ pages:
         - Week 2: 'lectures/week2/index.md'
   - Discussions:
         - Week 1: 'discussions/week1/index.md'
+        - Week 2: 'discussions/week2/index.md'
   - Additional notes:
         - JavaScript No No's: 'notes/js_nono.md'
