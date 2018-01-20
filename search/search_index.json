@@ -186,6 +186,41 @@
             "title": "Closure"
         }, 
         {
+            "location": "/discussions/week2/", 
+            "text": "Lambda Calc Review and Practice by Nadah Feteih\n\n\nBelow are some notes taken from lecture and slides. We wont be posting\nthe solutions to the practice problems we went through in discussion, \nbut come to office hours if you have any questions. \n\n\nSyntax\n\n\n\u03bbx.e \ne ::=  \n \n    | \n \n    | (\n \n) \n    | (\u03bb \n.\n) \n\n\nVariables, applications, lambda abstractions \n\n\nIs \u03bbx.\u03bby.\u03bbz.e the same as \u03bbxyz.e? \n(x,y,z) =\n {}\n(x) =\n (y) =\n (z) =\n {}\n\n\nSemantics\n\n\nFunction applications are left associative\n\n\ne1 e2 e3 e4 \n(((e1 e2) e3) e4)\n\n\nParenthesis have no meanings, you can add them as much as you want following the correct rules.\n(Applications are left associative and terms are bound as far right as possible)\n\n\nYou can only drop parenthesis if the meaning isn't ambiguous.\n\n\nSubstitution\n\n\n(\u03bbx.(\u03bby.(x + y))) 4 5 \nWhich arguments do we apply first? \n\n\nFree and bound variables \n\n\nCapture Avoiding Substitution \ny[x := e] = y\n(e1 e2)[x := e] = e1[x := e] e2[x := e]\n(\u03bbx.e1)[x := e] = \u03bbx.e1\n\n\nAlpha renaming\n\u03bbx.e = \u03bby.e[x :=y], y != FV(e)\n\n\nBeta Reduction \n(\u03bbx.e1)e2 = e1[x := e2]\n\n\nEta reduction\n\u03bbx. e x = e , x != FV(e)\n\n\nEvaluation Order (CBV and CBN)\n\n\nDoes matter which order you choose to simplify subexpressions IF it reduces to normal form?\nWhat does normal form mean? Can no longer beta reduce \n\n\n(\u03bbx.e1) e2\n\n\n(\u03bbx.y)\u03a9\n ----\n y CBN \n ----\n (\u03bbx.y)\u03a9 CBV\n\n\nPractice Problems\n\n\n\n\n\n\nconst Y = f =\n (x =\n f(x(x)))(x =\nf(x(x)))\n   Y(z =\n 9)\n\n\n\n\n\n\n(\u03bbx.x) (\u03bby.x y z) - what are the free variables? \n\n\n\n\n\n\nReductions\n\n\n\n\n\n\n((\u03bbx.(x y))(\u03bbz.z))\n\n\n\n\n\n\n(\u03bbx.x)((\u03bby.y) z)\n\n\n\n\n\n\n(\u03bbf.\u03bbx.(f x)) \u03bby.y+1\n\n\n\n\n\n\n(\u03bbx.\u03bby.x y)(\u03bbz.z)\n\n\n\n\n\n\n((\u03bbf.(\u03bbx.f (f x)))(\u03bbx.x+1)) 4\n\n\n\n\n\n\n(\u03bbf.(\u03bbx.f(f x)))(\u03bby.y+x)\n\n\n\n\n\n\n(\u03bbx.y)((\u03bbx.x x)(\u03bby.y z))\n\n\n\n\n\n\n(\u03bbp.\u03bbq.\u03bbr.p q r)(\u03bbp.\u03bbq.p q r)\n\n\n\n\n\n\n((\u03bbf.((\u03bbg.((f f) g))(\u03bbh.(k h))))(\u03bbx.(\u03bby.y)))\n\n\n\n\n\n\nEvaluation Strategies - CBV \n CBN\n\n\n\n\n\n\n(\u03bbx.\u03bby.y x)(5 + 2)(\u03bbx.x+1)\n\n\n\n\n\n\n(\u03bbf.f 7)((\u03bbx.x x) \u03bby.y)", 
+            "title": "Week 2"
+        }, 
+        {
+            "location": "/discussions/week2/#lambda-calc-review-and-practice-by-nadah-feteih", 
+            "text": "Below are some notes taken from lecture and slides. We wont be posting\nthe solutions to the practice problems we went through in discussion, \nbut come to office hours if you have any questions.", 
+            "title": "Lambda Calc Review and Practice by Nadah Feteih"
+        }, 
+        {
+            "location": "/discussions/week2/#syntax", 
+            "text": "\u03bbx.e \ne ::=    \n    |   \n    | (   ) \n    | (\u03bb  . )   Variables, applications, lambda abstractions   Is \u03bbx.\u03bby.\u03bbz.e the same as \u03bbxyz.e? \n(x,y,z) =  {}\n(x) =  (y) =  (z) =  {}", 
+            "title": "Syntax"
+        }, 
+        {
+            "location": "/discussions/week2/#semantics", 
+            "text": "Function applications are left associative  e1 e2 e3 e4 \n(((e1 e2) e3) e4)  Parenthesis have no meanings, you can add them as much as you want following the correct rules.\n(Applications are left associative and terms are bound as far right as possible)  You can only drop parenthesis if the meaning isn't ambiguous.", 
+            "title": "Semantics"
+        }, 
+        {
+            "location": "/discussions/week2/#substitution", 
+            "text": "(\u03bbx.(\u03bby.(x + y))) 4 5 \nWhich arguments do we apply first?   Free and bound variables   Capture Avoiding Substitution \ny[x := e] = y\n(e1 e2)[x := e] = e1[x := e] e2[x := e]\n(\u03bbx.e1)[x := e] = \u03bbx.e1  Alpha renaming\n\u03bbx.e = \u03bby.e[x :=y], y != FV(e)  Beta Reduction \n(\u03bbx.e1)e2 = e1[x := e2]  Eta reduction\n\u03bbx. e x = e , x != FV(e)", 
+            "title": "Substitution"
+        }, 
+        {
+            "location": "/discussions/week2/#evaluation-order-cbv-and-cbn", 
+            "text": "Does matter which order you choose to simplify subexpressions IF it reduces to normal form?\nWhat does normal form mean? Can no longer beta reduce   (\u03bbx.e1) e2  (\u03bbx.y)\u03a9\n ----  y CBN \n ----  (\u03bbx.y)\u03a9 CBV", 
+            "title": "Evaluation Order (CBV and CBN)"
+        }, 
+        {
+            "location": "/discussions/week2/#practice-problems", 
+            "text": "const Y = f =  (x =  f(x(x)))(x = f(x(x)))\n   Y(z =  9)    (\u03bbx.x) (\u03bby.x y z) - what are the free variables?     Reductions    ((\u03bbx.(x y))(\u03bbz.z))    (\u03bbx.x)((\u03bby.y) z)    (\u03bbf.\u03bbx.(f x)) \u03bby.y+1    (\u03bbx.\u03bby.x y)(\u03bbz.z)    ((\u03bbf.(\u03bbx.f (f x)))(\u03bbx.x+1)) 4    (\u03bbf.(\u03bbx.f(f x)))(\u03bby.y+x)    (\u03bbx.y)((\u03bbx.x x)(\u03bby.y z))    (\u03bbp.\u03bbq.\u03bbr.p q r)(\u03bbp.\u03bbq.p q r)    ((\u03bbf.((\u03bbg.((f f) g))(\u03bbh.(k h))))(\u03bbx.(\u03bby.y)))    Evaluation Strategies - CBV   CBN    (\u03bbx.\u03bby.y x)(5 + 2)(\u03bbx.x+1)    (\u03bbf.f 7)((\u03bbx.x x) \u03bby.y)", 
+            "title": "Practice Problems"
+        }, 
+        {
             "location": "/notes/js_nono/", 
             "text": "Below are code snippets that illustrate some of the flexible features of\nJavaScript and how they can introduce unexpected/unintuitive behavior. There\nare many more; see Appendix B of Crockford's \nJavaScript: The Good Parts\n.\nPlease note that there are useful, positive sides of most of these; every\nlanguage design/implementation decision is a trade-off.\n\n\nAutomatic semicolon insertion\n\n\nfunction\n \nf\n()\n \n{\n\n     \nreturn\n \n3\n;\n\n\n}\n\n\nfunction\n \ng\n()\n \n{\n\n     \nreturn\n\n       \n3\n;\n\n\n}\n\n\nconsole\n.\nlog\n(\nf\n());\n \n// ??\n\n\nconsole\n.\nlog\n(\ng\n());\n \n// ??\n\n\n\n\n\n\nEval\n\n\nJavaScript's \neval\n function can be used to load and execute new code at\nruntime. This is generally considered a bad/dangerous idea, but nevertheless\nuseful in some cases. Beyond security implications (mostly a concern in the\nbrowser since \neval\n can easily be leveraged to carry out \nXSS\nattacks\n), however the\nbehavior of \neval\n differs when you call it directly or indirectly. This\ndifference was introduced in the name of performance (arguably okay since you\nshould not be using \neval\n very much, but still not great.)\n\n\nglobal\n.\nx\n \n=\n \n33\n;\n\n\n{\n\n  \nconst\n \nx\n \n=\n \n44\n;\n\n  \nconst\n \nev\n \n=\n \neval\n;\n\n  \nconsole\n.\nlog\n(\neval\n(\nx\n));\n \n// ??\n\n  \nconsole\n.\nlog\n(\nev\n(\nx\n));\n \n// ??\n\n\n}\n\n\n\n\n\n\nImplicit casting\n\n\nSee the sarcastic \nWAT\n video.\n\n\nMonkeypatching\n\n\nBecause JavaScript lets you modify arbitrary objects and their prototypes,\nrunning untrusted code safely is extremely difficult to do. (If you're\ninterested in this, come talk to me; this is some of my research).\nSee some examples\n\nhere\n on global\nobject poisoning. Here is the simplest:\n\n\n// suppose add was exposed by a third-party library\n\n\nfunction\n \nadd\n(\nx\n,\n \ny\n)\n \n{\n\n  \n// Poison the Object prototype by redefining toString,\n\n  \n// which is called when objects are implicitly casted to\n\n  \n// strings. The modified function modifies the object (this), by\n\n  \n// setting name to \nmud\n;\n\n  \nObject\n.\nprototype\n.\ntoString\n \n=\n \nfunction\n \n()\n \n{\n\n    \nvar\n \nname\n \n=\n \nthis\n.\nname\n \n;\n\n    \nthis\n.\nname\n \n=\n \nmud\n;\n\n    \nreturn\n \nHA \n \n+\n \nname\n \n+\n \n.  IM STEALIN UR CODEZ!\n;\n\n  \n};\n\n  \nreturn\n \nx\n \n+\n \ny\n;\n\n\n}\n\n\n\nvar\n \no\n \n=\n \n{\n \nname\n:\n \nBingo\n \n};\n\n\nconsole\n.\nlog\n(\nadd\n(\n3\n,\n4\n));\n \n// calling add poisoned Object.prototype\n\n\nconsole\n.\nlog\n(\n \n+\n \no\n);\n\n\nconsole\n.\nlog\n(\nYour name is now \n \n+\n \no\n.\nname\n);", 
             "title": "JavaScript No No's"
