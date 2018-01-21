@@ -11,7 +11,7 @@ post a private question or contact the course staff by email.
 - **Name:** [Deian Stefan](https://cseweb.ucsd.edu/~dstefan/)
 - **Email:** <deian+cse130@cs.ucsd.edu>
 - **Address:** CSE 3126
-- **Office Hours:** TBA
+- **Office Hours:** Tuesday 11AM-12PM, CSE 3126
 
 ##### Teaching Assistants
 
