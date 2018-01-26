@@ -12,12 +12,12 @@ x = 2
 
 -- x = 3  -- is this allowed?
 
--- * 'let' introduces local bindings
+-- * 'let' introduces local bindings (new scope)
 
-example0 = let x = 44 -- is this okay?
+example0 = let x = 44 -- this "shadows" above x
                z = x - 2
            in z * 2
-           -- what is x here?
+           -- what is x here? A: 2, B: 44
 
 -- * Variables are order-independent
 
@@ -74,16 +74,20 @@ listOfInt = [1,2,3]
 -- * E.g., truth is a Boolean
 truth = True :: Bool
 
--- # Some remarks about types
+-- ## Some remarks about types
 
--- * We didn't need to add type annotations: Haskell infers types
---   - Inspect types in GHCi with :t
---   - You should generally specify types anyway. Why?
--- * Is this the same thing as not having to specify types in JS?
---   - A: yes, B: no
+{-
+   * We didn't need to add type annotations: Haskell infers types
+     - Inspect types in GHCi with :t
+     - You should generally specify types anyway. Why?
+   * Is this the same thing as not having to specify types in JS?
+     - A: yes, B: no
+-}
 
 -- * Haskell doesn't do any implicit conversions
---   - E.g., ii_x_dbl = ii + dbl :: ???
+--   - What's the type of ii_x_dbl below:
+--     ii_x_dbl = ii + dbl :: ???
+--     - A: Double, B: Int, C: Type error
 
 -- * Arithmetic operators + and * are overloaded (as are some other)
 
@@ -99,6 +103,7 @@ pos :: Integer -> Bool
 
 -- * Function arguments separated by space not (,)'s
 pos x = x > 0
+
 -- * As in JS, you can just use lambdas instead:
 gt :: Int -> Int -> Bool
 gt = \x y -> x > y -- \xy.(x > y)
@@ -112,7 +117,8 @@ is33pos = pos 33 -- True
 -- * How you should think: what does this mean? Think math!
 -- * In Haskell, f :: A -> B means:
 --   - For every element x ∈ A,
---      f(x) = some element y = f(x) ∈ B or diverge
+--      f(x) = y for some some element y ∈ B 
+--      or f(x) diverges
 
 -- ## Multi-argument functions
 
@@ -122,15 +128,14 @@ arith :: Int -> Int -> Int -> Int
 arith x y z = x * (y + z)
 
 -- * Function appication happens one argument at a time ("currying")
-
 add x y = x + y
 five = add 3 2 -- is the same as: (add 3) 2
-add3 = add 3 -- :: Int -> Int
--- add3 y = 3 + y
+add3 = add 3  -- :: ???
+--   - What's another way to write add3? 
 
 -- * All Haskell functions take one argument
 --   - Multi-argument functions just return funtions
---   - E.g.,
+--   - E.g., the type of add with ()'s added:
 add :: Integer -> (Integer -> Integer)
 --   - We usually ommit ()'s since -> is right-associative
 
@@ -148,7 +153,7 @@ tuple2 = (3, 'w')      :: (Int, Char)
 tuple3 = (3, 'w', 3.3) :: (Int, Char, Double)
 
 funAdd :: (Int, Int) -> Int
-funAdd (x, y) = x+y
+funAdd (x, y) = x + y
 
 funAdd35 = funAdd (3, 5)
 
@@ -180,7 +185,7 @@ data PairT = PairC Int Int
              deriving Show -- means you can print types
 --  - New type: PairT
 --  - Value/data constructor: PairC
---  - A value of this type contains two Int's
+--  - A value of this type encapsulates two Int's
 myPair :: PairT
 myPair = PairC 3 4
 
@@ -203,8 +208,7 @@ myRed = Red :: Color
 myPair' :: Int -> PairT
 myPair' = PairC 3
 
--- * Case statements can be used to "de-construct" values with
--- patterns
+-- * Case expressions can be used to "de-construct" values with patterns
 
 getX :: PairT -> Int
 getX pair = case pair of
@@ -260,7 +264,7 @@ isLT0 = (<=0)
 --   - E.g., int list:
 
 data IntList = INil | ICons Int IntList
-             deriving Show -- ^^^^^^^
+             deriving Show   -- ^^^^^^^
 
 myEmptyIntList = INil :: IntList
 
@@ -281,7 +285,7 @@ six = sumOfIntList myIntList == 6
 -- ## Polymorphic datatypes
 
 -- * I want a list of Char's or String's or Point's
---   - Define separate datatype for each: crazy!
+--   - Define separate datatype for each: crazy! We want re-usability!
 
 data CharList = CNil | CCons Char CharList deriving Show
 
