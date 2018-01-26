@@ -307,6 +307,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#source-code-used-in-class" title="Source code used in class" class="md-nav__link">
+    Source code used in class
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -450,6 +457,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#source-code-used-in-class" title="Source code used in class" class="md-nav__link">
+    Source code used in class
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -489,6 +503,393 @@ But there are many other sources to take advantage of, including:</p>
 <li><a href="https://www.haskell.org/tutorial/index.html">A Gentle Introduction to Haskell 98</a> </li>
 <li><a href="https://www.haskell.org/onlinereport/haskell2010/haskellpa1.html">The Haskell 2010 Language</a></li>
 </ul>
+<h3 id="source-code-used-in-class">Source code used in class<a class="headerlink" href="#source-code-used-in-class" title="Permanent link">&para;</a></h3>
+<p>Below you'll find the source we used during lecture. You can run these with
+GHCi (e.g., from <a href="https://www.haskell.org/platform/">Haskell Platform</a>).</p>
+<div class="codehilite"><pre><span></span><span class="kr">module</span> <span class="nn">Intro</span> <span class="kr">where</span>
+<span class="kr">import</span> <span class="nn">Prelude</span> <span class="k">hiding</span> <span class="p">(</span><span class="kt">Either</span><span class="p">(</span><span class="o">..</span><span class="p">))</span>
+
+<span class="c1">-- # Definitions and bindings</span>
+
+<span class="c1">-- * Haskell uses the = sign to declare symbol *bindings*:</span>
+
+<span class="nf">x</span> <span class="ow">=</span> <span class="mi">2</span>
+
+<span class="c1">-- * They are called variables, but they are not mutable boxes</span>
+<span class="c1">--   * They are like JS&#39;s const (but on steroids)</span>
+
+<span class="c1">-- x = 3  -- is this allowed?</span>
+
+<span class="c1">-- * &#39;let&#39; introduces local bindings (new scope)</span>
+
+<span class="nf">example0</span> <span class="ow">=</span> <span class="kr">let</span> <span class="n">x</span> <span class="ow">=</span> <span class="mi">44</span> <span class="c1">-- this &quot;shadows&quot; above x</span>
+               <span class="n">z</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">2</span>
+           <span class="kr">in</span> <span class="n">z</span> <span class="o">*</span> <span class="mi">2</span>
+           <span class="c1">-- what is x here? A: 2, B: 44</span>
+
+<span class="c1">-- * Variables are order-independent</span>
+
+<span class="nf">a</span> <span class="ow">=</span>  <span class="kr">if</span> <span class="n">y</span>
+      <span class="kr">then</span> <span class="sc">&#39;a&#39;</span>
+      <span class="kr">else</span> <span class="sc">&#39;b&#39;</span> <span class="c1">-- we use the y defined below:</span>
+<span class="nf">y</span> <span class="ow">=</span> <span class="kt">True</span>
+
+<span class="c1">-- # Essence of programming in Haskell</span>
+
+<span class="c1">-- * Everything is an expression</span>
+<span class="c1">-- * Expressions evaluate to values</span>
+<span class="c1">--    - What&#39;s the diff between expressions and values?</span>
+<span class="c1">-- * Programming in Haskell: substituting equals by equals</span>
+<span class="c1">--    - Lambda calculus for the win!</span>
+
+<span class="cm">{-</span>
+<span class="cm">example0 = let x = 44</span>
+<span class="cm">               z = x - 2</span>
+<span class="cm">           in z * 2</span>
+<span class="cm">--&gt;</span>
+<span class="cm">         = let z = 44 - 2</span>
+<span class="cm">           in z * 2</span>
+<span class="cm">--&gt;</span>
+<span class="cm">         = (44 - 2) * 2</span>
+<span class="cm">--&gt;</span>
+<span class="cm">         = 42 * 2</span>
+<span class="cm">--&gt;</span>
+<span class="cm">         = 84</span>
+<span class="cm">-}</span>
+
+<span class="c1">-- # Every expression has a type</span>
+
+<span class="c1">-- * E.g., intVal is a word-sized integer</span>
+<span class="nf">intVal</span> <span class="ow">::</span> <span class="kt">Int</span>
+<span class="nf">intVal</span> <span class="ow">=</span> <span class="mi">31</span> <span class="o">*</span> <span class="p">(</span><span class="mi">42</span> <span class="o">+</span> <span class="mi">56</span><span class="p">)</span>
+
+<span class="c1">-- * E.g., ii is an Arbitrarily large integer</span>
+<span class="nf">ii</span> <span class="ow">::</span> <span class="kt">Integer</span>
+<span class="nf">ii</span> <span class="ow">=</span> <span class="mi">31</span> <span class="o">*</span> <span class="p">(</span><span class="mi">42</span> <span class="o">+</span> <span class="mi">56000000</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1">-- * E.g., dbl is a double precision floating point</span>
+<span class="nf">dbl</span> <span class="ow">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="mf">4.2</span> <span class="o">+</span> <span class="mf">5.6</span><span class="p">)</span>
+
+<span class="c1">-- * E.g., chr is a unicode character</span>
+<span class="nf">chr</span> <span class="ow">=</span> <span class="sc">&#39;a&#39;</span> <span class="ow">::</span> <span class="kt">Char</span>
+
+<span class="c1">-- * E.g., str is a String = [Char]</span>
+<span class="nf">str</span> <span class="ow">=</span> <span class="s">&quot;w00t&quot;</span> <span class="ow">::</span> <span class="kt">String</span>
+
+<span class="nf">listOfInt</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span>
+<span class="nf">listOfInt</span> <span class="ow">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="c1">-- * E.g., truth is a Boolean</span>
+<span class="nf">truth</span> <span class="ow">=</span> <span class="kt">True</span> <span class="ow">::</span> <span class="kt">Bool</span>
+
+<span class="c1">-- ## Some remarks about types</span>
+
+<span class="cm">{-</span>
+<span class="cm">   * We didn&#39;t need to add type annotations: Haskell infers types</span>
+<span class="cm">     - Inspect types in GHCi with :t</span>
+<span class="cm">     - You should generally specify types anyway. Why?</span>
+<span class="cm">   * Is this the same thing as not having to specify types in JS?</span>
+<span class="cm">     - A: yes, B: no</span>
+<span class="cm">-}</span>
+
+<span class="c1">-- * Haskell doesn&#39;t do any implicit conversions</span>
+<span class="c1">--   - What&#39;s the type of ii_x_dbl below:</span>
+<span class="c1">--     ii_x_dbl = ii + dbl :: ???</span>
+<span class="c1">--     - A: Double, B: Int, C: Type error</span>
+
+<span class="c1">-- * Arithmetic operators + and * are overloaded (as are some other)</span>
+
+<span class="nf">ii_add</span>  <span class="ow">=</span> <span class="n">ii</span> <span class="o">+</span> <span class="mi">33</span>    <span class="c1">-- :: ?</span>
+<span class="nf">dbl_add</span> <span class="ow">=</span> <span class="n">dbl</span> <span class="o">+</span> <span class="mf">33.0</span> <span class="c1">-- :: ?</span>
+
+<span class="c1">-- * We&#39;ll talk about overloading more in the upcoming classes</span>
+
+<span class="c1">-- # Functions</span>
+
+<span class="c1">-- * Functions have &quot;arrow types&quot;</span>
+<span class="nf">pos</span> <span class="ow">::</span> <span class="kt">Integer</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+
+<span class="c1">-- * Function arguments separated by space not (,)&#39;s</span>
+<span class="nf">pos</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+<span class="c1">-- * As in JS, you can just use lambdas instead:</span>
+<span class="nf">gt</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="nf">gt</span> <span class="ow">=</span> <span class="nf">\</span><span class="n">x</span> <span class="n">y</span> <span class="ow">-&gt;</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span> <span class="c1">-- \xy.(x &gt; y)</span>
+
+<span class="c1">-- * Function application is like in lambda calculus:</span>
+<span class="nf">is33pos</span> <span class="ow">=</span> <span class="n">pos</span> <span class="mi">33</span> <span class="c1">-- True</span>
+
+<span class="c1">-- * How you should NOT think about functions (or expressions):</span>
+<span class="c1">--   - What does this function do?</span>
+
+<span class="c1">-- * How you should think: what does this mean? Think math!</span>
+<span class="c1">-- * In Haskell, f :: A -&gt; B means:</span>
+<span class="c1">--   - For every element x ∈ A,</span>
+<span class="c1">--      f(x) = y for some some element y ∈ B </span>
+<span class="c1">--      or f(x) diverges</span>
+
+<span class="c1">-- ## Multi-argument functions</span>
+
+<span class="c1">-- * Functions can take multiple arguments</span>
+
+<span class="nf">arith</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">arith</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span>
+
+<span class="c1">-- * Function appication happens one argument at a time (&quot;currying&quot;)</span>
+<span class="nf">add</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="nf">five</span> <span class="ow">=</span> <span class="n">add</span> <span class="mi">3</span> <span class="mi">2</span> <span class="c1">-- is the same as: (add 3) 2</span>
+<span class="nf">add3</span> <span class="ow">=</span> <span class="n">add</span> <span class="mi">3</span>  <span class="c1">-- :: ???</span>
+<span class="c1">--   - What&#39;s another way to write add3? </span>
+
+<span class="c1">-- * All Haskell functions take one argument</span>
+<span class="c1">--   - Multi-argument functions just return funtions</span>
+<span class="c1">--   - E.g., the type of add with ()&#39;s added:</span>
+<span class="nf">add</span> <span class="ow">::</span> <span class="kt">Integer</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Integer</span> <span class="ow">-&gt;</span> <span class="kt">Integer</span><span class="p">)</span>
+<span class="c1">--   - We usually ommit ()&#39;s since -&gt; is right-associative</span>
+
+<span class="nf">add4Things</span> <span class="ow">::</span> <span class="kt">Float</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Float</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Float</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Float</span> <span class="ow">-&gt;</span> <span class="kt">Float</span><span class="p">)))</span>
+<span class="nf">add4Things</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span> <span class="n">w</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="n">w</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.0</span> <span class="ow">::</span> <span class="kt">Float</span><span class="p">)</span>
+
+<span class="c1">-- # Tuples and lists</span>
+
+<span class="c1">-- * Haskell has basic support for tuples</span>
+<span class="c1">--   - Constructors: (), (,), (,,), ...</span>
+
+<span class="c1">--   - E.g., tuples</span>
+<span class="nf">unit</span>   <span class="ow">=</span> <span class="nb">()</span>            <span class="ow">::</span> <span class="nb">()</span> <span class="c1">-- kind of like void</span>
+<span class="nf">tuple2</span> <span class="ow">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="sc">&#39;w&#39;</span><span class="p">)</span>      <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span> <span class="kt">Char</span><span class="p">)</span>
+<span class="nf">tuple3</span> <span class="ow">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="sc">&#39;w&#39;</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">)</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span> <span class="kt">Char</span><span class="p">,</span> <span class="kt">Double</span><span class="p">)</span>
+
+<span class="nf">funAdd</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">funAdd</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+<span class="nf">funAdd35</span> <span class="ow">=</span> <span class="n">funAdd</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="c1">-- * Haskell has basic support for homogeneous lists</span>
+<span class="c1">--   - Constructors: (:) | []</span>
+<span class="nf">myIntList&#39;&#39;</span> <span class="ow">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span>
+<span class="c1">-- same as consing things:</span>
+<span class="nf">myIntList&#39;&#39;&#39;</span> <span class="ow">=</span> <span class="mi">1</span><span class="kt">:</span><span class="mi">2</span><span class="kt">:</span><span class="mi">3</span><span class="kt">:[]</span>
+<span class="c1">-- (:) :: Int -&gt; [Int] -&gt; [Int]</span>
+<span class="c1">-- (:) 3 [] == 3:[] == [3]</span>
+
+<span class="c1">-- * Cons (:) is used to add elements to the list; ++ can be used to</span>
+<span class="c1">-- concatenate lists:</span>
+<span class="nf">concatenatedList</span> <span class="ow">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">++</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+
+<span class="c1">-- * Empty lists</span>
+<span class="nf">myEmptyBoolList</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Bool</span><span class="p">]</span>
+<span class="nf">myEmptyBoolList</span> <span class="ow">=</span> <span class="kt">[]</span>
+<span class="nf">myEmptyCharList</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Char</span><span class="p">]</span>
+<span class="nf">myEmptyCharList</span> <span class="ow">=</span> <span class="kt">[]</span>
+
+<span class="c1">-- * Haskell does not have support for heterogenous lists</span>
+<span class="c1">--   - E.g., myHeteroList = [1, &#39;w&#39;] :: ???</span>
+
+<span class="c1">-- # Abstract data types</span>
+
+<span class="c1">-- * The &#39;data&#39; keyword declares user-defined data types</span>
+<span class="kr">data</span> <span class="kt">PairT</span> <span class="ow">=</span> <span class="kt">PairC</span> <span class="kt">Int</span> <span class="kt">Int</span> 
+             <span class="kr">deriving</span> <span class="kt">Show</span> <span class="c1">-- means you can print types</span>
+<span class="c1">--  - New type: PairT</span>
+<span class="c1">--  - Value/data constructor: PairC</span>
+<span class="c1">--  - A value of this type encapsulates two Int&#39;s</span>
+<span class="nf">myPair</span> <span class="ow">::</span> <span class="kt">PairT</span>
+<span class="nf">myPair</span> <span class="ow">=</span> <span class="kt">PairC</span> <span class="mi">3</span> <span class="mi">4</span>
+
+<span class="c1">-- * One type can have multiple constructors</span>
+<span class="kr">data</span> <span class="kt">Point</span> <span class="ow">=</span> <span class="kt">Cartesian</span> <span class="kt">Double</span> <span class="kt">Double</span>
+           <span class="o">|</span> <span class="kt">Polar</span> <span class="kt">Double</span> <span class="kt">Double</span>
+           <span class="kr">deriving</span> <span class="kt">Show</span>
+
+<span class="nf">point1</span><span class="p">,</span> <span class="n">point2</span> <span class="ow">::</span> <span class="kt">Point</span>
+<span class="nf">point1</span> <span class="ow">=</span> <span class="kt">Cartesian</span> <span class="mf">3.3</span> <span class="mf">2.2</span>
+<span class="nf">point2</span> <span class="ow">=</span> <span class="kt">Polar</span> <span class="mf">0.1</span> <span class="mf">3.14</span>
+
+<span class="kr">data</span> <span class="kt">Color</span> <span class="ow">=</span> <span class="kt">Red</span> <span class="o">|</span> <span class="kt">Green</span> <span class="o">|</span> <span class="kt">Blue</span> <span class="o">|</span> <span class="kt">Indigo</span> <span class="o">|</span> <span class="kt">Violet</span> <span class="kr">deriving</span> <span class="kt">Show</span>
+<span class="nf">myRed</span> <span class="ow">=</span> <span class="kt">Red</span> <span class="ow">::</span> <span class="kt">Color</span>
+
+<span class="c1">-- ## Using ADTs</span>
+
+<span class="c1">-- * Constructors are like functions, can partially apply:</span>
+
+<span class="nf">myPair&#39;</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">PairT</span>
+<span class="nf">myPair&#39;</span> <span class="ow">=</span> <span class="kt">PairC</span> <span class="mi">3</span>
+
+<span class="c1">-- * Case expressions can be used to &quot;de-construct&quot; values with patterns</span>
+
+<span class="nf">getX</span> <span class="ow">::</span> <span class="kt">PairT</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">getX</span> <span class="n">pair</span> <span class="ow">=</span> <span class="kr">case</span> <span class="n">pair</span> <span class="kr">of</span>
+               <span class="kt">PairC</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">-&gt;</span> <span class="n">x</span>
+
+<span class="c1">-- E.g., convert point to cartesian:</span>
+<span class="nf">toCartesian</span> <span class="ow">::</span> <span class="kt">Point</span> <span class="ow">-&gt;</span> <span class="kt">Point</span>
+<span class="nf">toCartesian</span> <span class="n">point</span> <span class="ow">=</span> <span class="kr">case</span> <span class="n">point</span> <span class="kr">of</span>
+                      <span class="kt">Polar</span> <span class="n">r</span> <span class="n">theta</span> <span class="ow">-&gt;</span> <span class="kt">Cartesian</span> <span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">cos</span> <span class="n">theta</span><span class="p">)</span>
+                                                 <span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">sin</span> <span class="n">theta</span><span class="p">)</span>
+                      <span class="c1">-- Cartesian x y -&gt; Cartesian x y -- or, less verbose:</span>
+                      <span class="n">pt</span><span class="o">@</span><span class="p">(</span><span class="kt">Cartesian</span> <span class="kr">_</span> <span class="kr">_</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">pt</span>
+
+<span class="c1">-- We can define a tiny language with addition and multiplication:</span>
+<span class="kr">data</span> <span class="kt">Expr</span> <span class="ow">=</span> <span class="kt">AddExpr</span> <span class="kt">Expr</span> <span class="kt">Expr</span>
+          <span class="o">|</span> <span class="kt">MulExpr</span> <span class="kt">Expr</span> <span class="kt">Expr</span>
+          <span class="o">|</span> <span class="kt">ConstExpr</span> <span class="kt">Int</span>
+          <span class="kr">deriving</span> <span class="kt">Show</span>
+
+<span class="nf">eval</span> <span class="ow">::</span> <span class="kt">Expr</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">eval</span> <span class="p">(</span><span class="kt">ConstExpr</span> <span class="n">n</span><span class="p">)</span> <span class="ow">=</span> <span class="n">n</span>
+<span class="nf">eval</span> <span class="p">(</span><span class="kt">AddExpr</span> <span class="n">e1</span> <span class="n">e2</span><span class="p">)</span> <span class="ow">=</span> <span class="n">eval</span> <span class="n">e1</span> <span class="o">+</span> <span class="n">eval</span> <span class="n">e2</span>
+<span class="nf">eval</span> <span class="p">(</span><span class="kt">MulExpr</span> <span class="n">e1</span> <span class="n">e2</span><span class="p">)</span> <span class="ow">=</span> <span class="n">eval</span> <span class="n">e1</span> <span class="o">*</span> <span class="n">eval</span> <span class="n">e2</span>
+
+<span class="c1">-- ## Pattern matching beyond case</span>
+
+<span class="c1">-- * Can use patterns instead of variables beyond case</span>
+<span class="c1">--   - E.g., when defining functions:</span>
+<span class="nf">toCartesian&#39;</span> <span class="ow">::</span> <span class="kt">Point</span> <span class="ow">-&gt;</span> <span class="kt">Point</span>
+<span class="nf">toCartesian&#39;</span> <span class="p">(</span><span class="kt">Polar</span> <span class="n">r</span> <span class="n">theta</span><span class="p">)</span> <span class="ow">=</span> <span class="kt">Cartesian</span> <span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">cos</span> <span class="n">theta</span><span class="p">)</span>
+                                         <span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">sin</span> <span class="n">theta</span><span class="p">)</span>
+<span class="nf">toCartesian&#39;</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span>
+
+<span class="c1">--   - E.g., in a let block</span>
+<span class="nf">getY</span> <span class="n">pair</span> <span class="ow">=</span> <span class="kr">let</span> <span class="p">(</span><span class="kt">PairC</span> <span class="kr">_</span> <span class="n">y</span><span class="p">)</span> <span class="ow">=</span> <span class="n">pair</span> <span class="kr">in</span> <span class="n">y</span>
+
+<span class="c1">-- * The order of pattern matching matters</span>
+<span class="c1">--   - E.g., What happens if we swap order?</span>
+<span class="nf">factorial&#39;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="nf">factorial&#39;</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">factorial&#39;</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1">-- * You can alternatively guard definitions:</span>
+<span class="nf">factorial&#39;&#39;</span> <span class="n">n</span> <span class="o">|</span> <span class="n">isLT0</span> <span class="n">n</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="nf">factorial&#39;&#39;</span> <span class="n">n</span> <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">factorial&#39;&#39;</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1">-- * Guards are just predicates</span>
+<span class="nf">isLT0</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="nf">isLT0</span> <span class="ow">=</span> <span class="p">(</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1">-- ## Recursive datatypes</span>
+
+<span class="c1">-- * Datatypes can be defined recursively</span>
+<span class="c1">--   - E.g., int list:</span>
+
+<span class="kr">data</span> <span class="kt">IntList</span> <span class="ow">=</span> <span class="kt">INil</span> <span class="o">|</span> <span class="kt">ICons</span> <span class="kt">Int</span> <span class="kt">IntList</span>
+             <span class="kr">deriving</span> <span class="kt">Show</span>   <span class="c1">-- ^^^^^^^</span>
+
+<span class="nf">myEmptyIntList</span> <span class="ow">=</span> <span class="kt">INil</span> <span class="ow">::</span> <span class="kt">IntList</span>
+
+<span class="nf">myIntList</span> <span class="ow">=</span> <span class="kt">ICons</span> <span class="mi">1</span> <span class="p">(</span><span class="kt">ICons</span> <span class="mi">2</span> <span class="p">(</span><span class="kt">ICons</span> <span class="mi">3</span> <span class="n">myEmptyIntList</span><span class="p">))</span> <span class="ow">::</span> <span class="kt">IntList</span>
+
+<span class="nf">sumOfIntList</span> <span class="ow">::</span> <span class="kt">IntList</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">sumOfIntList</span> <span class="kt">INil</span> <span class="ow">=</span> <span class="mi">0</span>
+<span class="nf">sumOfIntList</span> <span class="p">(</span><span class="kt">ICons</span> <span class="n">x</span> <span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="p">(</span><span class="n">sumOfIntList</span> <span class="n">xs</span><span class="p">)</span>
+<span class="cm">{- Solution:</span>
+<span class="cm">sumOfIntList INil = error &quot;Empty list&quot;</span>
+<span class="cm">sumOfIntList (ICons x INil) = x</span>
+<span class="cm">sumOfIntList (ICons x xs) = x + sumOfIntList xs</span>
+<span class="cm">-}</span>
+
+<span class="nf">six</span> <span class="ow">::</span> <span class="kt">Bool</span>
+<span class="nf">six</span> <span class="ow">=</span> <span class="n">sumOfIntList</span> <span class="n">myIntList</span> <span class="o">==</span> <span class="mi">6</span>
+
+<span class="c1">-- ## Polymorphic datatypes</span>
+
+<span class="c1">-- * I want a list of Char&#39;s or String&#39;s or Point&#39;s</span>
+<span class="c1">--   - Define separate datatype for each: crazy! We want re-usability!</span>
+
+<span class="kr">data</span> <span class="kt">CharList</span> <span class="ow">=</span> <span class="kt">CNil</span> <span class="o">|</span> <span class="kt">CCons</span> <span class="kt">Char</span> <span class="kt">CharList</span> <span class="kr">deriving</span> <span class="kt">Show</span>
+
+<span class="c1">-- * May want to have functions that work on any kind of lists</span>
+<span class="c1">--   - Solution: parametrized types</span>
+<span class="c1">-- * Types can have parameters (kind of like functions)</span>
+<span class="kr">data</span> <span class="kt">List</span> <span class="n">a</span> <span class="ow">=</span> <span class="kt">Nil</span> <span class="o">|</span> <span class="kt">Cons</span> <span class="n">a</span> <span class="p">(</span><span class="kt">List</span> <span class="n">a</span><span class="p">)</span> <span class="kr">deriving</span> <span class="kt">Show</span>
+                  <span class="c1">--     ^  ^^^^^^</span>
+<span class="c1">--   - Here, List itself takes an argument: type variable a.</span>
+<span class="c1">--   - Can use type variable a in constructor</span>
+
+<span class="c1">--   - Cons and Nil work on any types:</span>
+<span class="nf">myIntList&#39;</span> <span class="ow">::</span> <span class="kt">List</span> <span class="kt">Int</span>
+<span class="nf">myIntList&#39;</span> <span class="ow">=</span> <span class="kt">Cons</span> <span class="mi">1</span> <span class="p">(</span><span class="kt">Cons</span> <span class="mi">2</span> <span class="p">(</span><span class="kt">Cons</span> <span class="mi">3</span> <span class="kt">Nil</span><span class="p">))</span>
+
+<span class="nf">myCharList&#39;</span> <span class="ow">::</span> <span class="kt">List</span> <span class="kt">Char</span>
+<span class="nf">myCharList&#39;</span> <span class="ow">=</span> <span class="kt">Cons</span> <span class="sc">&#39;a&#39;</span> <span class="p">(</span><span class="kt">Cons</span> <span class="sc">&#39;b&#39;</span> <span class="p">(</span><span class="kt">Cons</span> <span class="sc">&#39;c&#39;</span> <span class="kt">Nil</span><span class="p">))</span>
+
+<span class="nf">llength</span> <span class="ow">::</span> <span class="kt">List</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">llength</span> <span class="ow">=</span> <span class="n">undefined</span>
+<span class="cm">{- Solution:</span>
+<span class="cm">llength Nil = 0</span>
+<span class="cm">llength (Cons x xs) = 1 + llength xs</span>
+<span class="cm">-}</span>
+
+<span class="nf">myList&#39;len</span> <span class="ow">::</span> <span class="kt">Bool</span>
+<span class="nf">myList&#39;len</span> <span class="ow">=</span>  <span class="mi">3</span> <span class="o">==</span> <span class="n">llength</span> <span class="n">myIntList&#39;</span> <span class="o">&amp;&amp;</span>
+              <span class="mi">3</span> <span class="o">==</span> <span class="n">llength</span> <span class="n">myCharList&#39;</span>
+
+<span class="c1">-- ## Polymorphic datatypes with multiple parameters</span>
+
+<span class="c1">-- * Can have multiple type variables</span>
+
+<span class="kr">data</span> <span class="kt">Either</span> <span class="n">a</span> <span class="n">b</span> <span class="ow">=</span> <span class="kt">Left</span> <span class="n">a</span> <span class="o">|</span> <span class="kt">Right</span> <span class="n">b</span>
+                <span class="kr">deriving</span> <span class="kt">Show</span>
+
+<span class="nf">safeDiv</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Either</span> <span class="kt">String</span> <span class="kt">Int</span>
+<span class="nf">safeDiv</span> <span class="kr">_</span> <span class="mi">0</span> <span class="ow">=</span> <span class="n">myErr</span>
+<span class="nf">safeDiv</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="kt">Right</span> <span class="o">$</span> <span class="n">x</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="n">y</span>
+
+<span class="c1">-- * What is the type of:</span>
+<span class="c1">--myErr :: ???</span>
+<span class="nf">myErr</span> <span class="ow">=</span> <span class="kt">Left</span> <span class="s">&quot;You can&#39;t divide by zero, silly.&quot;</span>
+
+<span class="c1">-- # Lazyness</span>
+
+<span class="c1">-- * Definitions of symbols evauated ony when needed</span>
+<span class="c1">--   -  E.g., safe division:</span>
+<span class="nf">safeDiv&#39;</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span>
+  <span class="kr">let</span> <span class="n">q</span> <span class="ow">=</span> <span class="n">div</span> <span class="n">x</span> <span class="n">y</span>        <span class="c1">-- safe as q never evaluated if y == 0</span>
+  <span class="kr">in</span> <span class="kr">if</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span> <span class="kr">then</span> <span class="mi">0</span> <span class="kr">else</span> <span class="n">q</span>
+
+<span class="c1">-- * Infinite data structures</span>
+<span class="nf">posInts</span> <span class="ow">=</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="p">]</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span>
+
+<span class="c1">-- * Custom control &quot;primitives&quot;</span>
+<span class="c1">--   - E.g., if:</span>
+<span class="nf">if&#39;</span> <span class="n">b</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="kr">case</span> <span class="n">b</span> <span class="kr">of</span>
+              <span class="kt">True</span> <span class="ow">-&gt;</span> <span class="n">x</span>
+              <span class="kr">_</span>    <span class="ow">-&gt;</span> <span class="n">y</span>
+<span class="c1">--   - E.g., loop forever:</span>
+<span class="nf">forever</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">forever</span> <span class="n">x</span>
+<span class="c1">--   - What doe the following mean?</span>
+<span class="nf">exampleF</span> <span class="ow">=</span> <span class="n">if&#39;</span> <span class="kt">True</span> <span class="mi">3</span> <span class="p">(</span><span class="n">forever</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="c1">-- ## Laziness FTW: undefined and error</span>
+
+<span class="c1">-- * Can leave things as undefined -- sometimes called bottom</span>
+
+<span class="nf">thisVarIsUndef</span> <span class="ow">=</span> <span class="n">undefined</span>
+<span class="nf">soIsThisVar</span>    <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;leaving this undefined for now, fixme later&quot;</span>
+
+<span class="c1">-- * Because Haskell is lazy, it won&#39;t throw up unless you use them</span>
+
+<span class="c1">-- * Why might this be useful?</span>
+
+<span class="c1">-- * Note: This is not how you should raise exceptions in Haskell!</span>
+
+
+<span class="c1">-- # Bindings with where clauses</span>
+
+<span class="c1">-- * Recall that let x = ... in ... can be used to bind variable x within local scope</span>
+
+<span class="c1">-- * Let can be used whenever you need to create block scope; &#39;let&#39;s are expressions</span>
+
+<span class="c1">-- * Sometimes you want more flexiblity; therein comes the &#39;where&#39; clauses:</span>
+
+<span class="nf">cmpSquare</span> <span class="n">x</span> <span class="n">y</span>  <span class="o">|</span>  <span class="n">y</span> <span class="o">&gt;</span> <span class="n">z</span>    <span class="ow">=</span>  <span class="s">&quot;bigger :)&quot;</span>
+               <span class="o">|</span>  <span class="n">y</span> <span class="o">==</span> <span class="n">z</span>   <span class="ow">=</span>  <span class="s">&quot;same :|&quot;</span>
+               <span class="o">|</span>  <span class="n">y</span> <span class="o">&lt;</span> <span class="n">z</span>    <span class="ow">=</span>  <span class="s">&quot;smaller :(&quot;</span>
+    <span class="kr">where</span> <span class="n">z</span> <span class="ow">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
+
+<span class="c1">-- * Note that z is in scope of the function there</span>
+
+<span class="c1">-- * General: where clause associated with function equations or case expressions</span>
+</pre></div>
                 
                   
                 

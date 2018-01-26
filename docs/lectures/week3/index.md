@@ -20,3 +20,12 @@ But there are many other sources to take advantage of, including:
 - [A history of Haskell: Being lazy with class](http://dl.acm.org/citation.cfm?doid=1238844.1238856) is a fantastic read. 
 - [A Gentle Introduction to Haskell 98](https://www.haskell.org/tutorial/index.html) 
 - [The Haskell 2010 Language](https://www.haskell.org/onlinereport/haskell2010/haskellpa1.html)
+
+### Source code used in class
+
+Below you'll find the source we used during lecture. You can run these with
+GHCi (e.g., from [Haskell Platform](https://www.haskell.org/platform/)).
+
+```haskell
+{!lectures/week3/code/intro.hs!}
+```
