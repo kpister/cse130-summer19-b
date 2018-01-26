@@ -142,18 +142,23 @@
         }, 
         {
             "location": "/lectures/week3/", 
-            "text": "Lecture slides\n\n\n\n\nScope: \npdf\n, \nkey\n,\n\n\n\n\nRecommended reading\n\n\n\n\nTextbook: Chapter 7 on Scope, \nChapter 5\n on Haskell.\n\n\nPhilip Guo's \nJavaScript tutor", 
+            "text": "Lecture slides\n\n\n\n\nScope: \npdf\n, \nkey\n,\n\n\nHaskell: \npdf\n, \nkey\n,\n\n\n\n\nRecommended reading\n\n\n\n\nTextbook: Chapter 7 on Scope, \nChapter 5\n on Haskell.\n\n\nPhilip Guo's \nJavaScript tutor\n\n\n\n\nExternal sources\n\n\nIf you have not worked with Haskell before, take some time to familiarize\nyourself with the basics of the language. The chapter above is a good start.\nBut there are many other sources to take advantage of, including:\n\n\n\n\nBrent Yorgey's \nHaskell Basics\n lectures.\n\n\nLearn You a Haskell for Great Good!\n is also a good book to read through.\n\n\nA history of Haskell: Being lazy with class\n is a fantastic read, and there is a similarly engaging \ntalk\n. \n\n\nA history of Haskell: Being lazy with class\n is a fantastic read. \n\n\nA Gentle Introduction to Haskell 98\n \n\n\nThe Haskell 2010 Language", 
             "title": "Week 3"
         }, 
         {
             "location": "/lectures/week3/#lecture-slides", 
-            "text": "Scope:  pdf ,  key ,", 
+            "text": "Scope:  pdf ,  key ,  Haskell:  pdf ,  key ,", 
             "title": "Lecture slides"
         }, 
         {
             "location": "/lectures/week3/#recommended-reading", 
             "text": "Textbook: Chapter 7 on Scope,  Chapter 5  on Haskell.  Philip Guo's  JavaScript tutor", 
             "title": "Recommended reading"
+        }, 
+        {
+            "location": "/lectures/week3/#external-sources", 
+            "text": "If you have not worked with Haskell before, take some time to familiarize\nyourself with the basics of the language. The chapter above is a good start.\nBut there are many other sources to take advantage of, including:   Brent Yorgey's  Haskell Basics  lectures.  Learn You a Haskell for Great Good!  is also a good book to read through.  A history of Haskell: Being lazy with class  is a fantastic read, and there is a similarly engaging  talk .   A history of Haskell: Being lazy with class  is a fantastic read.   A Gentle Introduction to Haskell 98    The Haskell 2010 Language", 
+            "title": "External sources"
         }, 
         {
             "location": "/discussions/week1/", 
