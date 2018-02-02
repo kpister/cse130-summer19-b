@@ -167,7 +167,7 @@
         }, 
         {
             "location": "/lectures/week4/", 
-            "text": "Lecture slides\n\n\n\n\nType systems and type inference: \npdf\n, \nkey\n,\n\n\n\n\nRecommended reading\n\n\n\n\nTextbook: new \nChapter 6\n on types.", 
+            "text": "Lecture slides\n\n\n\n\nType systems and type inference: \npdf\n, \nkey\n,\n\n\n\n\nRecommended reading\n\n\n\n\nTextbook: new \nChapter 6\n on types.\n\n\nType systems for programming languages\n by Didier R\u00e9my", 
             "title": "Week 4"
         }, 
         {
@@ -177,7 +177,7 @@
         }, 
         {
             "location": "/lectures/week4/#recommended-reading", 
-            "text": "Textbook: new  Chapter 6  on types.", 
+            "text": "Textbook: new  Chapter 6  on types.  Type systems for programming languages  by Didier R\u00e9my", 
             "title": "Recommended reading"
         }, 
         {
