@@ -1,12 +1,6 @@
-{-# LANGUAGE InstanceSigs #-}
-module HasMap where
+data Tree a = Node (Tree a) (Tree a)
+            | Leaf a
 
-import Prelude hiding (map)
-
--- allEqual'  :: ???
-allEqual' a b c = a == b && b == c 
-
--- Reall: map :: (a -> b) -> [a] -> [b]
--- Let's define this function to work on arbitrary things and not just lists,
--- say Maybe types and Tree types.
-
+instance Show a => Show (Tree a) where
+  show (Leaf a)   = "Leaf " ++ show a
+  show (Node l r) = "Node " ++ show l ++ "@" ++ show r

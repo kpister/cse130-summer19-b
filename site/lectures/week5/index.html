@@ -318,6 +318,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#code-snippets" title="Code snippets" class="md-nav__link">
+    Code snippets
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -448,6 +455,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#code-snippets" title="Code snippets" class="md-nav__link">
+    Code snippets
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -473,6 +487,15 @@
 <ul>
 <li>Textbook: new <a href="./readings/type-classes.pdf">Chapter 7</a> on type classes.</li>
 </ul>
+<h3 id="code-snippets">Code snippets<a class="headerlink" href="#code-snippets" title="Permanent link">&para;</a></h3>
+<p>Simple example showing how to make <code>Tree</code> dataype an instance of <code>Show</code>:</p>
+<div class="codehilite"><pre><span></span><span class="kr">data</span> <span class="kt">Tree</span> <span class="n">a</span> <span class="ow">=</span> <span class="kt">Node</span> <span class="p">(</span><span class="kt">Tree</span> <span class="n">a</span><span class="p">)</span> <span class="p">(</span><span class="kt">Tree</span> <span class="n">a</span><span class="p">)</span>
+            <span class="o">|</span> <span class="kt">Leaf</span> <span class="n">a</span>
+
+<span class="kr">instance</span> <span class="kt">Show</span> <span class="n">a</span> <span class="ow">=&gt;</span> <span class="kt">Show</span> <span class="p">(</span><span class="kt">Tree</span> <span class="n">a</span><span class="p">)</span> <span class="kr">where</span>
+  <span class="n">show</span> <span class="p">(</span><span class="kt">Leaf</span> <span class="n">a</span><span class="p">)</span>   <span class="ow">=</span> <span class="s">&quot;Leaf &quot;</span> <span class="o">++</span> <span class="n">show</span> <span class="n">a</span>
+  <span class="n">show</span> <span class="p">(</span><span class="kt">Node</span> <span class="n">l</span> <span class="n">r</span><span class="p">)</span> <span class="ow">=</span> <span class="s">&quot;Node &quot;</span> <span class="o">++</span> <span class="n">show</span> <span class="n">l</span> <span class="o">++</span> <span class="s">&quot;@&quot;</span> <span class="o">++</span> <span class="n">show</span> <span class="n">r</span>
+</pre></div>
                 
                   
                 
