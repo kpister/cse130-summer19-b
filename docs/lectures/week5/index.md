@@ -11,5 +11,5 @@
 Simple example showing how to make `Tree` dataype an instance of `Show`:
 
 ```haskell
-{!lectures/week5/code/type-classes-use.hs!}
+{!lectures/week5/code/type-classes-show.hs!}
 ```

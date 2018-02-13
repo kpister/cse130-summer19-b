@@ -3,7 +3,10 @@ module HasMap where
 
 import Prelude hiding (map)
 
--- map :: (a -> b) -> [a] -> [b]
+mapList :: (a -> b) -> [a] -> [b]
+mapList f [] = []
+mapList f (x:xs) = f x : mapList f xs
+
 mapMaybe :: (a -> b) -> Maybe a -> Maybe b
 mapMaybe f Nothing = Nothing
 mapMaybe f (Just x) = Just (f x)
