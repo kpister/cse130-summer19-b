@@ -187,7 +187,7 @@
         }, 
         {
             "location": "/lectures/week5/", 
-            "text": "Lecture slides\n\n\n\n\nType classes and type inference: \npdf\n, \nkey\n,\n\n\n\n\nRecommended reading\n\n\n\n\nTextbook: new \nChapter 7\n on type classes.\n\n\n\n\nCode snippets\n\n\nSimple example showing how to make \nTree\n dataype an instance of \nShow\n:\n\n\ndata\n \nTree\n \na\n \n=\n \nNode\n \n(\nTree\n \na\n)\n \n(\nTree\n \na\n)\n\n            \n|\n \nLeaf\n \na\n\n\n\ninstance\n \nShow\n \na\n \n=\n \nShow\n \n(\nTree\n \na\n)\n \nwhere\n\n  \nshow\n \n(\nLeaf\n \na\n)\n   \n=\n \nLeaf \n \n++\n \nshow\n \na\n\n  \nshow\n \n(\nNode\n \nl\n \nr\n)\n \n=\n \nNode \n \n++\n \nshow\n \nl\n \n++\n \n@\n \n++\n \nshow\n \nr", 
+            "text": "Lecture slides\n\n\n\n\nType classes and type inference: \npdf\n, \nkey\n,\n\n\n\n\nRecommended reading\n\n\n\n\nTextbook: new \nChapter 7\n on type classes.\n\n\n\n\nCode snippets\n\n\nSimple example showing how to make \nTree\n dataype an instance of \nShow\n:\n\n\ndata\n \nTree\n \na\n \n=\n \nNode\n \n(\nTree\n \na\n)\n \n(\nTree\n \na\n)\n\n            \n|\n \nLeaf\n \na\n\n\n\ninstance\n \nShow\n \na\n \n=\n \nShow\n \n(\nTree\n \na\n)\n \nwhere\n\n \nshow\n \n(\nLeaf\n \na\n)\n \n=\n \nshow\n \na\n\n \nshow\n \n(\nNode\n \nlt\n \nrt\n)\n \n=\n \nshow\n \nlt\n \n++\n \n /\n\\\\\n \n \n++\n \nshow\n \nrt\n\n\n\ndata\n \nColor\n \n=\n \nRed\n \n|\n \nGreen\n \n|\n \nBlue\n \n|\n \nIndigo\n \n|\n \nViolet\n\n           \nderiving\n \nShow", 
             "title": "Week 5"
         }, 
         {
@@ -202,7 +202,7 @@
         }, 
         {
             "location": "/lectures/week5/#code-snippets", 
-            "text": "Simple example showing how to make  Tree  dataype an instance of  Show :  data   Tree   a   =   Node   ( Tree   a )   ( Tree   a ) \n             |   Leaf   a  instance   Show   a   =   Show   ( Tree   a )   where \n   show   ( Leaf   a )     =   Leaf    ++   show   a \n   show   ( Node   l   r )   =   Node    ++   show   l   ++   @   ++   show   r", 
+            "text": "Simple example showing how to make  Tree  dataype an instance of  Show :  data   Tree   a   =   Node   ( Tree   a )   ( Tree   a ) \n             |   Leaf   a  instance   Show   a   =   Show   ( Tree   a )   where \n  show   ( Leaf   a )   =   show   a \n  show   ( Node   lt   rt )   =   show   lt   ++    / \\\\     ++   show   rt  data   Color   =   Red   |   Green   |   Blue   |   Indigo   |   Violet \n            deriving   Show", 
             "title": "Code snippets"
         }, 
         {

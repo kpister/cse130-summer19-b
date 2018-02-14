@@ -4,36 +4,69 @@ import Prelude hiding (Num(..), Eq(..), Ord(..), map)
 
 -- # Eq class with dictionaries
 
-data Eq a = MkEqDict { (==) :: a -> a -> Bool }
+data Eq a = MkEqDict { 
+  (==) :: a -> a -> Bool,
+  (/=) :: a -> a -> Bool
+  }
 
 -- instance Eq Bool where ...
 dEqBool :: Eq Bool
-dEqBool = MkEqDict eq
-    where eq True True   = True
-          eq False False = True
-          eq _ _         = False
+dEqBool = MkEqDict {
+   (==) = eq,
+   (/=) = nEq
+ } where eq True   True  = True
+         eq False  False = True
+         eq _      _     = False
+         nEq x y = not $ eq x y
 
 
--- In real Haskell:
--- allEqual' :: Eq a => a -> a -> a -> Bool
--- allEqual' a b c = (==) a b && (==) b c 
 
--- How do we rewrite this with dictinoaries?
--- allEqual :: Eq a -> a -> a -> a
--- allEqual dict a b c = (==) dict a b && (==) dict b c
+
+
+
+
+
+
+
+
+
+
+
+
+allEqual :: Eq a -> a -> a -> a -> Bool
+allEqual dict a b c = 
+  (==) dict a b && (==) dict b c 
+
+
+
+
+
 
 -- instance Eq a => Eq [a] where ...
 dEqList :: Eq a -> Eq [a]
-dEqList elDict = MkEqDict eq
+dEqList elDict = MkEqDict eq nEq
     where eq [] []         = True
-          eq (x:xs) (y:ys) = (==) elDict x y && eq xs ys
+          eq (x:xs) (y:ys) =
+            (==) elDict x y &&jeq xs ys
           eq _ _           = False
+          nEq x y          =  not $ eq x y
 
 -- instance (Eq a, Eq b) => Eq (a, b) where ...
 dEqPair :: Eq a -> Eq b -> Eq (a, b)
-dEqPair aDict bDict = MkEqDict eq
-    where eq (x1,y1) (x2,y2) = (==) aDict x1 x2 && (==) bDict y1 y2
+dEqPair aDict bDict = MkEqDict eq nEq
+    where eq (x1,y1) (x2,y2) =
+            (==) aDict x1 x2 &&
+            (==) bDict y1 y2
+          nEq x y            =  not $ eq x y
 
+-- # Ord class
+
+data Ord a = MkOrd { (<=) :: a -> a -> Bool,
+                      eqD :: Eq a }
+
+
+compare :: Ord a -> a -> a -> Ordering
+compare d x y = undefined
 
 -- # Num class
 
@@ -55,8 +88,6 @@ data Num a = MkNumDict {
              }
 
 -- square :: Num a => a -> a
--- square x = x * x
-
 square :: Num a -> a -> a
 square = undefined
 
@@ -67,20 +98,3 @@ dNumInt = MkNumDict plusInt mulInt negInt
 squares :: Num a -> Num b -> a -> b -> (a,b)
 squares dx dy x y = undefined
 
-
--- # Ord class
-
-data Ord a = MkOrd { (<=) :: a -> a -> Bool,
-                      eqD :: Eq a }
-
-
-{- From Prelude:
-compare :: Ord a => a -> a -> Ordering
-compare x y = if x == y then EQ
-                  else if x <= y
-                          then LT
-                          else GT
--}
-
-compare :: Ord a -> a -> a -> Ordering
-compare d x y = undefined

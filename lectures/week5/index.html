@@ -505,8 +505,11 @@
             <span class="o">|</span> <span class="kt">Leaf</span> <span class="n">a</span>
 
 <span class="kr">instance</span> <span class="kt">Show</span> <span class="n">a</span> <span class="ow">=&gt;</span> <span class="kt">Show</span> <span class="p">(</span><span class="kt">Tree</span> <span class="n">a</span><span class="p">)</span> <span class="kr">where</span>
-  <span class="n">show</span> <span class="p">(</span><span class="kt">Leaf</span> <span class="n">a</span><span class="p">)</span>   <span class="ow">=</span> <span class="s">&quot;Leaf &quot;</span> <span class="o">++</span> <span class="n">show</span> <span class="n">a</span>
-  <span class="n">show</span> <span class="p">(</span><span class="kt">Node</span> <span class="n">l</span> <span class="n">r</span><span class="p">)</span> <span class="ow">=</span> <span class="s">&quot;Node &quot;</span> <span class="o">++</span> <span class="n">show</span> <span class="n">l</span> <span class="o">++</span> <span class="s">&quot;@&quot;</span> <span class="o">++</span> <span class="n">show</span> <span class="n">r</span>
+ <span class="n">show</span> <span class="p">(</span><span class="kt">Leaf</span> <span class="n">a</span><span class="p">)</span> <span class="ow">=</span> <span class="n">show</span> <span class="n">a</span>
+ <span class="n">show</span> <span class="p">(</span><span class="kt">Node</span> <span class="n">lt</span> <span class="n">rt</span><span class="p">)</span> <span class="ow">=</span> <span class="n">show</span> <span class="n">lt</span> <span class="o">++</span> <span class="s">&quot; /</span><span class="se">\\</span><span class="s"> &quot;</span> <span class="o">++</span> <span class="n">show</span> <span class="n">rt</span>
+
+<span class="kr">data</span> <span class="kt">Color</span> <span class="ow">=</span> <span class="kt">Red</span> <span class="o">|</span> <span class="kt">Green</span> <span class="o">|</span> <span class="kt">Blue</span> <span class="o">|</span> <span class="kt">Indigo</span> <span class="o">|</span> <span class="kt">Violet</span>
+           <span class="kr">deriving</span> <span class="kt">Show</span>
 </pre></div>
                 
                   
