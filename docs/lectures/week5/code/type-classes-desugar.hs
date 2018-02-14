@@ -11,28 +11,52 @@ data Eq a = MkEqDict {
 
 -- instance Eq Bool where ...
 dEqBool :: Eq Bool
-dEqBool = MkEqDict eq nEq
-    where eq True True   = True
-          eq False False = True
-          eq _ _         = False
-          nEq x y        =  not $ eq x y
+dEqBool = MkEqDict {
+   (==) = eq,
+   (/=) = nEq
+ } where eq True   True  = True
+         eq False  False = True
+         eq _      _     = False
+         nEq x y = not $ eq x y
 
--- allEqual :: Eq a => a -> a -> a -> Bool with dictionaries:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 allEqual :: Eq a -> a -> a -> a -> Bool
-allEqual dict a b c = (==) dict a b && (==) dict b c
+allEqual dict a b c = 
+  (==) dict a b && (==) dict b c 
+
+
+
+
+
 
 -- instance Eq a => Eq [a] where ...
 dEqList :: Eq a -> Eq [a]
 dEqList elDict = MkEqDict eq nEq
     where eq [] []         = True
-          eq (x:xs) (y:ys) = (==) elDict x y && eq xs ys
+          eq (x:xs) (y:ys) =
+            (==) elDict x y &&jeq xs ys
           eq _ _           = False
           nEq x y          =  not $ eq x y
 
 -- instance (Eq a, Eq b) => Eq (a, b) where ...
 dEqPair :: Eq a -> Eq b -> Eq (a, b)
 dEqPair aDict bDict = MkEqDict eq nEq
-    where eq (x1,y1) (x2,y2) = (==) aDict x1 x2 && (==) bDict y1 y2
+    where eq (x1,y1) (x2,y2) =
+            (==) aDict x1 x2 &&
+            (==) bDict y1 y2
           nEq x y            =  not $ eq x y
 
 -- # Ord class
