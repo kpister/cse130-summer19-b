@@ -1,7 +1,7 @@
 ### Lecture slides
 
 * Type classes, continued from [Week 5](../week5).
-* Objects
+* Objects: [pdf](slides/objects.pdf), [key](slides/objects.key),
 
 ### Recommended reading
 
