@@ -323,6 +323,47 @@
     Code snippets
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#show" title="Show" class="md-nav__link">
+    Show
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eq" title="Eq" class="md-nav__link">
+    Eq
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#num" title="Num" class="md-nav__link">
+    Num
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desugaring-type-classes-to-dictionaries" title="Desugaring type classes to dictionaries" class="md-nav__link">
+    Desugaring type classes to dictionaries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-more-complex-example-with-type-constructors" title="A more complex example with type constructors" class="md-nav__link">
+    A more complex example with type constructors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -472,6 +513,47 @@
     Code snippets
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#show" title="Show" class="md-nav__link">
+    Show
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eq" title="Eq" class="md-nav__link">
+    Eq
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#num" title="Num" class="md-nav__link">
+    Num
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desugaring-type-classes-to-dictionaries" title="Desugaring type classes to dictionaries" class="md-nav__link">
+    Desugaring type classes to dictionaries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-more-complex-example-with-type-constructors" title="A more complex example with type constructors" class="md-nav__link">
+    A more complex example with type constructors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -500,7 +582,8 @@
 <li>Textbook: new <a href="./readings/type-classes.pdf">Chapter 7</a> on type classes.</li>
 </ul>
 <h3 id="code-snippets">Code snippets<a class="headerlink" href="#code-snippets" title="Permanent link">&para;</a></h3>
-<p>Simple example showing how to make <code>Tree</code> dataype an instance of <code>Show</code>:</p>
+<p>Below are the code snippets from class.</p>
+<h4 id="show">Show<a class="headerlink" href="#show" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><span class="kr">data</span> <span class="kt">Tree</span> <span class="n">a</span> <span class="ow">=</span> <span class="kt">Node</span> <span class="p">(</span><span class="kt">Tree</span> <span class="n">a</span><span class="p">)</span> <span class="p">(</span><span class="kt">Tree</span> <span class="n">a</span><span class="p">)</span>
             <span class="o">|</span> <span class="kt">Leaf</span> <span class="n">a</span>
 
@@ -510,6 +593,261 @@
 
 <span class="kr">data</span> <span class="kt">Color</span> <span class="ow">=</span> <span class="kt">Red</span> <span class="o">|</span> <span class="kt">Green</span> <span class="o">|</span> <span class="kt">Blue</span> <span class="o">|</span> <span class="kt">Indigo</span> <span class="o">|</span> <span class="kt">Violet</span>
            <span class="kr">deriving</span> <span class="kt">Show</span>
+</pre></div>
+
+
+<h4 id="eq">Eq<a class="headerlink" href="#eq" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="c1">-- Recall our tiny calculator language</span>
+<span class="kr">data</span> <span class="kt">Expr</span> <span class="ow">=</span> <span class="kt">AddExpr</span> <span class="kt">Expr</span> <span class="kt">Expr</span>
+          <span class="o">|</span> <span class="kt">MulExpr</span> <span class="kt">Expr</span> <span class="kt">Expr</span>
+          <span class="o">|</span> <span class="kt">ConstExpr</span> <span class="kt">Int</span>
+          <span class="kr">deriving</span> <span class="kt">Eq</span>
+
+
+
+<span class="nf">eval</span> <span class="ow">::</span> <span class="kt">Expr</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">eval</span> <span class="p">(</span><span class="kt">ConstExpr</span> <span class="n">n</span><span class="p">)</span> <span class="ow">=</span> <span class="n">n</span>
+<span class="nf">eval</span> <span class="p">(</span><span class="kt">AddExpr</span> <span class="n">e1</span> <span class="n">e2</span><span class="p">)</span> <span class="ow">=</span> <span class="n">eval</span> <span class="n">e1</span> <span class="o">+</span> <span class="n">eval</span> <span class="n">e2</span>
+<span class="nf">eval</span> <span class="p">(</span><span class="kt">MulExpr</span> <span class="n">e1</span> <span class="n">e2</span><span class="p">)</span> <span class="ow">=</span> <span class="n">eval</span> <span class="n">e1</span> <span class="o">*</span> <span class="n">eval</span> <span class="n">e2</span>
+
+<span class="kr">instance</span> <span class="kt">Show</span> <span class="kt">Expr</span> <span class="kr">where</span>
+  <span class="n">show</span> <span class="p">(</span><span class="kt">ConstExpr</span> <span class="n">i</span><span class="p">)</span> <span class="ow">=</span> <span class="n">show</span> <span class="n">i</span>
+  <span class="n">show</span> <span class="p">(</span><span class="kt">AddExpr</span> <span class="n">e1</span> <span class="n">e2</span><span class="p">)</span> <span class="ow">=</span> <span class="n">unwords</span> <span class="p">[</span><span class="s">&quot;(&quot;</span><span class="p">,</span> <span class="n">show</span> <span class="n">e1</span><span class="p">,</span> <span class="s">&quot;)&quot;</span><span class="p">,</span> <span class="s">&quot;+&quot;</span><span class="p">,</span> <span class="s">&quot;(&quot;</span><span class="p">,</span> <span class="n">show</span> <span class="n">e2</span><span class="p">,</span> <span class="s">&quot;)&quot;</span><span class="p">]</span>
+  <span class="n">show</span> <span class="p">(</span><span class="kt">MulExpr</span> <span class="n">e1</span> <span class="n">e2</span><span class="p">)</span> <span class="ow">=</span> <span class="n">unwords</span> <span class="p">[</span><span class="s">&quot;(&quot;</span><span class="p">,</span> <span class="n">show</span> <span class="n">e1</span><span class="p">,</span> <span class="s">&quot;)&quot;</span><span class="p">,</span> <span class="s">&quot;*&quot;</span><span class="p">,</span> <span class="s">&quot;(&quot;</span><span class="p">,</span> <span class="n">show</span> <span class="n">e2</span><span class="p">,</span> <span class="s">&quot;)&quot;</span><span class="p">]</span>
+
+
+<span class="nf">ex0</span> <span class="ow">::</span> <span class="kt">Expr</span>
+<span class="nf">ex0</span> <span class="ow">=</span> <span class="p">(</span><span class="kt">AddExpr</span> <span class="p">(</span><span class="kt">ConstExpr</span> <span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="kt">MulExpr</span> <span class="p">(</span><span class="kt">ConstExpr</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="kt">ConstExpr</span> <span class="mi">1</span><span class="p">)))</span>
+
+<span class="nf">ex1</span> <span class="ow">::</span> <span class="kt">Expr</span>
+<span class="nf">ex1</span> <span class="ow">=</span> <span class="p">(</span><span class="kt">AddExpr</span> <span class="p">(</span><span class="kt">ConstExpr</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="kt">MulExpr</span> <span class="p">(</span><span class="kt">ConstExpr</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="kt">ConstExpr</span> <span class="mi">2</span><span class="p">)))</span>
+
+<span class="nf">eq</span> <span class="ow">=</span> <span class="n">ex0</span> <span class="o">==</span> <span class="n">ex1</span> <span class="c1">-- A: yes, B: no?</span>
+<span class="c1">--</span>
+<span class="c1">-- instance Eq Expr where</span>
+<span class="c1">--   exp1 == exp2 = eval exp1 == eval exp2</span>
+</pre></div>
+
+
+<h4 id="num">Num<a class="headerlink" href="#num" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="kr">module</span> <span class="nn">Intro</span> <span class="kr">where</span>
+
+<span class="c1">-- * One type can have multiple constructors</span>
+<span class="kr">data</span> <span class="kt">Point</span> <span class="ow">=</span> <span class="kt">Cartesian</span> <span class="kt">Double</span> <span class="kt">Double</span>
+           <span class="o">|</span> <span class="kt">Polar</span> <span class="kt">Double</span> <span class="kt">Double</span>
+           <span class="kr">deriving</span> <span class="kt">Show</span>
+
+<span class="c1">-- E.g., convert point to cartesian:</span>
+<span class="nf">toCartesian</span> <span class="ow">::</span> <span class="kt">Point</span> <span class="ow">-&gt;</span> <span class="kt">Point</span>
+<span class="nf">toCartesian</span> <span class="n">point</span> <span class="ow">=</span> <span class="kr">case</span> <span class="n">point</span> <span class="kr">of</span>
+                      <span class="kt">Polar</span> <span class="n">r</span> <span class="n">theta</span> <span class="ow">-&gt;</span> <span class="kt">Cartesian</span> <span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">cos</span> <span class="n">theta</span><span class="p">)</span>
+                                                 <span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">sin</span> <span class="n">theta</span><span class="p">)</span>
+                      <span class="n">pt</span><span class="o">@</span><span class="p">(</span><span class="kt">Cartesian</span> <span class="kr">_</span> <span class="kr">_</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">pt</span>
+
+<span class="kr">instance</span> <span class="kt">Num</span> <span class="kt">Point</span> <span class="kr">where</span>
+  <span class="p">(</span><span class="kt">Cartesian</span> <span class="n">x1</span> <span class="n">y1</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="kt">Cartesian</span> <span class="n">x2</span> <span class="n">y2</span><span class="p">)</span> <span class="ow">=</span> <span class="kt">Cartesian</span> <span class="p">(</span><span class="n">x1</span><span class="o">+</span><span class="n">x2</span><span class="p">)</span> <span class="p">(</span><span class="n">y1</span><span class="o">+</span><span class="n">y2</span><span class="p">)</span>
+  <span class="n">p1</span><span class="o">@</span><span class="p">(</span><span class="kt">Polar</span> <span class="kr">_</span> <span class="kr">_</span><span class="p">)</span> <span class="o">+</span> <span class="n">p2</span><span class="o">@</span><span class="p">(</span><span class="kt">Polar</span> <span class="kr">_</span> <span class="kr">_</span><span class="p">)</span> <span class="ow">=</span> <span class="n">toCartesian</span> <span class="n">p1</span> <span class="o">+</span> <span class="n">toCartesian</span> <span class="n">p2</span>
+
+  <span class="p">(</span><span class="kt">Cartesian</span> <span class="n">x1</span> <span class="n">y1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="kt">Cartesian</span> <span class="n">x2</span> <span class="n">y2</span><span class="p">)</span> <span class="ow">=</span> <span class="kt">Cartesian</span> <span class="p">(</span><span class="n">x1</span><span class="o">*</span><span class="n">x2</span><span class="p">)</span> <span class="p">(</span><span class="n">y1</span><span class="o">*</span><span class="n">y2</span><span class="p">)</span>
+  <span class="n">p1</span> <span class="o">*</span> <span class="n">p2</span> <span class="ow">=</span> <span class="n">toCartesian</span> <span class="n">p1</span> <span class="o">*</span> <span class="n">toCartesian</span> <span class="n">p2</span>
+</pre></div>
+
+
+<h4 id="desugaring-type-classes-to-dictionaries">Desugaring type classes to dictionaries<a class="headerlink" href="#desugaring-type-classes-to-dictionaries" title="Permanent link">&para;</a></h4>
+<p>Original code, using type classes:</p>
+<div class="codehilite"><pre><span></span><span class="kr">module</span> <span class="nn">TypeClasses1</span> <span class="kr">where</span>
+<span class="kr">import</span> <span class="k">qualified</span> <span class="nn">Prelude</span>
+<span class="kr">import</span> <span class="nn">Prelude</span> <span class="k">hiding</span> <span class="p">(</span><span class="kt">Num</span><span class="p">(</span><span class="o">..</span><span class="p">),</span> <span class="kt">Eq</span><span class="p">(</span><span class="o">..</span><span class="p">),</span> <span class="kt">Ord</span><span class="p">(</span><span class="o">..</span><span class="p">),</span> <span class="nf">map</span><span class="p">)</span>
+
+<span class="c1">-- # Eq class examples</span>
+<span class="kr">class</span> <span class="kt">Eq</span> <span class="n">a</span> <span class="kr">where</span>
+ <span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+ <span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">not</span> <span class="o">$</span> <span class="n">x</span> <span class="o">/=</span> <span class="n">y</span>
+ <span class="p">(</span><span class="o">/=</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+ <span class="p">(</span><span class="o">/=</span><span class="p">)</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">not</span> <span class="o">$</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span>
+
+<span class="kr">instance</span> <span class="kt">Eq</span> <span class="kt">Bool</span> <span class="kr">where</span>
+  <span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="kt">True</span>  <span class="kt">True</span>  <span class="ow">=</span> <span class="kt">True</span>
+  <span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="kt">False</span> <span class="kt">False</span> <span class="ow">=</span> <span class="kt">True</span>
+  <span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="kr">_</span>     <span class="kr">_</span>     <span class="ow">=</span> <span class="kt">False</span>
+
+<span class="nf">allEqual</span> <span class="ow">::</span> <span class="kt">Eq</span> <span class="n">a</span> <span class="ow">=&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="nf">allEqual</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="ow">=</span> <span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="n">a</span> <span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="n">b</span> <span class="n">c</span> 
+
+<span class="kr">instance</span> <span class="kt">Eq</span> <span class="n">a</span> <span class="ow">=&gt;</span> <span class="kt">Eq</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="kr">where</span>
+  <span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="kt">[]</span>     <span class="kt">[]</span>     <span class="ow">=</span> <span class="kt">True</span>
+  <span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="p">(</span><span class="n">y</span><span class="kt">:</span><span class="n">ys</span><span class="p">)</span> <span class="ow">=</span> <span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="n">x</span> <span class="n">y</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="n">xs</span> <span class="n">ys</span>
+                    <span class="c1">--- ^            ^  A: yes , B: no?</span>
+  <span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="kr">_</span>      <span class="kr">_</span>      <span class="ow">=</span> <span class="kt">False</span>
+
+<span class="kr">instance</span> <span class="p">(</span><span class="kt">Eq</span> <span class="n">a</span><span class="p">,</span> <span class="kt">Eq</span> <span class="n">b</span><span class="p">)</span> <span class="ow">=&gt;</span> <span class="kt">Eq</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="kr">where</span>
+  <span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">)</span> <span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">)</span> <span class="ow">=</span> <span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="n">x1</span> <span class="n">x2</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="n">y1</span> <span class="n">y2</span>
+
+<span class="c1">-- # Ord class</span>
+
+<span class="kr">class</span> <span class="kt">Eq</span> <span class="n">a</span> <span class="ow">=&gt;</span> <span class="kt">Ord</span> <span class="n">a</span> <span class="kr">where</span>
+  <span class="p">(</span><span class="o">&lt;</span><span class="p">)</span>  <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+  <span class="p">(</span><span class="o">&lt;</span><span class="p">)</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="p">(</span><span class="o">&lt;=</span><span class="p">)</span> <span class="n">x</span> <span class="n">y</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="o">/=</span><span class="p">)</span> <span class="n">x</span> <span class="n">y</span>
+  <span class="p">(</span><span class="o">&lt;=</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+  <span class="p">(</span><span class="o">&lt;=</span><span class="p">)</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="p">(</span><span class="o">&lt;</span><span class="p">)</span> <span class="n">x</span> <span class="n">y</span> <span class="o">||</span> <span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="n">x</span> <span class="n">y</span>
+
+
+<span class="nf">compare</span> <span class="ow">::</span> <span class="kt">Ord</span> <span class="n">a</span> <span class="ow">=&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Ordering</span>
+<span class="nf">compare</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span> <span class="kr">then</span> <span class="kt">EQ</span>
+                  <span class="kr">else</span> <span class="kr">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span>
+                          <span class="kr">then</span> <span class="kt">LT</span>
+                          <span class="kr">else</span> <span class="kt">GT</span>
+
+<span class="c1">-- # Num class</span>
+
+<span class="c1">-- Our &quot;primitives&quot;</span>
+<span class="nf">plusInt</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">plusInt</span> <span class="ow">=</span> <span class="p">(</span><span class="kt">Prelude</span><span class="o">.+</span><span class="p">)</span>
+<span class="nf">mulInt</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">mulInt</span>  <span class="ow">=</span> <span class="p">(</span><span class="kt">Prelude</span><span class="o">.*</span><span class="p">)</span>
+<span class="nf">negInt</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">negInt</span> <span class="ow">=</span> <span class="kt">Prelude</span><span class="o">.</span><span class="n">negate</span>
+<span class="nf">integerToInt</span> <span class="ow">::</span> <span class="kt">Integer</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">integerToInt</span> <span class="ow">=</span> <span class="kt">Prelude</span><span class="o">.</span><span class="n">fromInteger</span>
+
+<span class="c1">-- Dictionary</span>
+<span class="kr">class</span> <span class="kt">Num</span> <span class="n">a</span> <span class="kr">where</span>
+   <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+   <span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+   <span class="n">negate</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+
+<span class="nf">square</span> <span class="ow">::</span> <span class="kt">Num</span> <span class="n">a</span> <span class="ow">=&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+<span class="nf">square</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+
+<span class="kr">instance</span> <span class="kt">Num</span> <span class="kt">Int</span> <span class="kr">where</span>
+ <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="ow">=</span> <span class="n">plusInt</span>
+ <span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="ow">=</span> <span class="n">mulInt</span>
+ <span class="n">negate</span> <span class="ow">=</span> <span class="n">negInt</span>
+
+<span class="nf">squares</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Num</span> <span class="n">a</span><span class="p">,</span> <span class="kt">Num</span> <span class="n">b</span><span class="p">)</span> <span class="ow">=&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="nf">squares</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Desugaring it to dictionaries:</p>
+<div class="codehilite"><pre><span></span><span class="kr">module</span> <span class="nn">TypeClasses1</span> <span class="kr">where</span>
+<span class="kr">import</span> <span class="k">qualified</span> <span class="nn">Prelude</span>
+<span class="kr">import</span> <span class="nn">Prelude</span> <span class="k">hiding</span> <span class="p">(</span><span class="kt">Num</span><span class="p">(</span><span class="o">..</span><span class="p">),</span> <span class="kt">Eq</span><span class="p">(</span><span class="o">..</span><span class="p">),</span> <span class="kt">Ord</span><span class="p">(</span><span class="o">..</span><span class="p">),</span> <span class="nf">map</span><span class="p">)</span>
+
+<span class="c1">-- # Eq class with dictionaries</span>
+
+<span class="kr">data</span> <span class="kt">Eq</span> <span class="n">a</span> <span class="ow">=</span> <span class="kt">MkEqDict</span> <span class="p">{</span> 
+  <span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span><span class="p">,</span>
+  <span class="p">(</span><span class="o">/=</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+  <span class="p">}</span>
+
+<span class="c1">-- instance Eq Bool where ...</span>
+<span class="nf">dEqBool</span> <span class="ow">::</span> <span class="kt">Eq</span> <span class="kt">Bool</span>
+<span class="nf">dEqBool</span> <span class="ow">=</span> <span class="kt">MkEqDict</span> <span class="p">{</span>
+   <span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="ow">=</span> <span class="n">eq</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">/=</span><span class="p">)</span> <span class="ow">=</span> <span class="n">nEq</span>
+ <span class="p">}</span> <span class="kr">where</span> <span class="n">eq</span> <span class="kt">True</span>   <span class="kt">True</span>  <span class="ow">=</span> <span class="kt">True</span>
+         <span class="n">eq</span> <span class="kt">False</span>  <span class="kt">False</span> <span class="ow">=</span> <span class="kt">True</span>
+         <span class="n">eq</span> <span class="kr">_</span>      <span class="kr">_</span>     <span class="ow">=</span> <span class="kt">False</span>
+         <span class="n">nEq</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">not</span> <span class="o">$</span> <span class="n">eq</span> <span class="n">x</span> <span class="n">y</span>
+
+<span class="nf">allEqual</span> <span class="ow">::</span> <span class="kt">Eq</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="nf">allEqual</span> <span class="n">dict</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="ow">=</span> 
+  <span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="n">dict</span> <span class="n">a</span> <span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="n">dict</span> <span class="n">b</span> <span class="n">c</span> 
+
+<span class="c1">-- instance Eq a =&gt; Eq [a] where ...</span>
+<span class="nf">dEqList</span> <span class="ow">::</span> <span class="kt">Eq</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Eq</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="nf">dEqList</span> <span class="n">elDict</span> <span class="ow">=</span> <span class="kt">MkEqDict</span> <span class="n">eq</span> <span class="n">nEq</span>
+    <span class="kr">where</span> <span class="n">eq</span> <span class="kt">[]</span> <span class="kt">[]</span>         <span class="ow">=</span> <span class="kt">True</span>
+          <span class="n">eq</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="p">(</span><span class="n">y</span><span class="kt">:</span><span class="n">ys</span><span class="p">)</span> <span class="ow">=</span>
+            <span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="n">elDict</span> <span class="n">x</span> <span class="n">y</span> <span class="o">&amp;&amp;</span> <span class="n">eq</span> <span class="n">xs</span> <span class="n">ys</span>
+          <span class="n">eq</span> <span class="kr">_</span> <span class="kr">_</span>           <span class="ow">=</span> <span class="kt">False</span>
+          <span class="n">nEq</span> <span class="n">x</span> <span class="n">y</span>          <span class="ow">=</span>  <span class="n">not</span> <span class="o">$</span> <span class="n">eq</span> <span class="n">x</span> <span class="n">y</span>
+
+<span class="c1">-- instance (Eq a, Eq b) =&gt; Eq (a, b) where ...</span>
+<span class="nf">dEqPair</span> <span class="ow">::</span> <span class="kt">Eq</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Eq</span> <span class="n">b</span> <span class="ow">-&gt;</span> <span class="kt">Eq</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="nf">dEqPair</span> <span class="n">aDict</span> <span class="n">bDict</span> <span class="ow">=</span> <span class="kt">MkEqDict</span> <span class="n">eq</span> <span class="n">nEq</span>
+    <span class="kr">where</span> <span class="n">eq</span> <span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">)</span> <span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">)</span> <span class="ow">=</span>
+            <span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="n">aDict</span> <span class="n">x1</span> <span class="n">x2</span> <span class="o">&amp;&amp;</span>
+            <span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="n">bDict</span> <span class="n">y1</span> <span class="n">y2</span>
+          <span class="n">nEq</span> <span class="n">x</span> <span class="n">y</span>            <span class="ow">=</span>  <span class="n">not</span> <span class="o">$</span> <span class="n">eq</span> <span class="n">x</span> <span class="n">y</span>
+
+<span class="c1">-- # Ord class</span>
+
+<span class="kr">data</span> <span class="kt">Ord</span> <span class="n">a</span> <span class="ow">=</span> <span class="kt">MkOrd</span> <span class="p">{</span> <span class="p">(</span><span class="o">&lt;=</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span><span class="p">,</span>
+                      <span class="n">eqD</span> <span class="ow">::</span> <span class="kt">Eq</span> <span class="n">a</span> <span class="p">}</span>
+
+
+<span class="nf">compare</span> <span class="ow">::</span> <span class="kt">Ord</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Ordering</span>
+<span class="nf">compare</span> <span class="n">d</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">undefined</span>
+
+<span class="c1">-- # Num class</span>
+
+<span class="c1">-- Our &quot;primitives&quot;</span>
+<span class="nf">plusInt</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">plusInt</span> <span class="ow">=</span> <span class="p">(</span><span class="kt">Prelude</span><span class="o">.+</span><span class="p">)</span>
+<span class="nf">mulInt</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">mulInt</span>  <span class="ow">=</span> <span class="p">(</span><span class="kt">Prelude</span><span class="o">.*</span><span class="p">)</span>
+<span class="nf">negInt</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">negInt</span> <span class="ow">=</span> <span class="kt">Prelude</span><span class="o">.</span><span class="n">negate</span>
+<span class="nf">integerToInt</span> <span class="ow">::</span> <span class="kt">Integer</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">integerToInt</span> <span class="ow">=</span> <span class="kt">Prelude</span><span class="o">.</span><span class="n">fromInteger</span>
+
+<span class="c1">-- Dictionary</span>
+<span class="kr">data</span> <span class="kt">Num</span> <span class="n">a</span> <span class="ow">=</span> <span class="kt">MkNumDict</span> <span class="p">{</span>
+                <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span><span class="p">,</span>
+                <span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span><span class="p">,</span>
+                <span class="n">negate</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+             <span class="p">}</span>
+
+<span class="c1">-- square :: Num a =&gt; a -&gt; a</span>
+<span class="nf">square</span> <span class="ow">::</span> <span class="kt">Num</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+<span class="nf">square</span> <span class="ow">=</span> <span class="n">undefined</span>
+
+<span class="nf">dNumInt</span> <span class="ow">::</span> <span class="kt">Num</span> <span class="kt">Int</span>
+<span class="nf">dNumInt</span> <span class="ow">=</span> <span class="kt">MkNumDict</span> <span class="n">plusInt</span> <span class="n">mulInt</span> <span class="n">negInt</span>
+
+<span class="c1">-- squares :: (Num a, Num b) =&gt; a -&gt; b -&gt; (a, b)</span>
+<span class="nf">squares</span> <span class="ow">::</span> <span class="kt">Num</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Num</span> <span class="n">b</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="nf">squares</span> <span class="n">dx</span> <span class="n">dy</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">undefined</span>
+</pre></div>
+
+
+<h4 id="a-more-complex-example-with-type-constructors">A more complex example with type constructors<a class="headerlink" href="#a-more-complex-example-with-type-constructors" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="cm">{-# LANGUAGE InstanceSigs #-}</span>
+<span class="kr">module</span> <span class="nn">HasMap</span> <span class="kr">where</span>
+
+<span class="kr">import</span> <span class="nn">Prelude</span> <span class="k">hiding</span> <span class="p">(</span><span class="nf">map</span><span class="p">)</span>
+
+<span class="nf">mapList</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">b</span><span class="p">]</span>
+<span class="nf">mapList</span> <span class="n">f</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="kt">[]</span>
+<span class="nf">mapList</span> <span class="n">f</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">f</span> <span class="n">x</span> <span class="kt">:</span> <span class="n">mapList</span> <span class="n">f</span> <span class="n">xs</span>
+
+<span class="nf">mapMaybe</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kt">Maybe</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Maybe</span> <span class="n">b</span>
+<span class="nf">mapMaybe</span> <span class="n">f</span> <span class="kt">Nothing</span> <span class="ow">=</span> <span class="kt">Nothing</span>
+<span class="nf">mapMaybe</span> <span class="n">f</span> <span class="p">(</span><span class="kt">Just</span> <span class="n">x</span><span class="p">)</span> <span class="ow">=</span> <span class="kt">Just</span> <span class="p">(</span><span class="n">f</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="kr">data</span> <span class="kt">Tree</span> <span class="n">a</span> <span class="ow">=</span> <span class="kt">Leaf</span> <span class="n">a</span>
+            <span class="o">|</span> <span class="kt">Node</span> <span class="p">(</span><span class="kt">Tree</span> <span class="n">a</span><span class="p">)</span> <span class="p">(</span><span class="kt">Tree</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="nf">mapTree</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kt">Tree</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Tree</span> <span class="n">b</span>
+<span class="nf">mapTree</span> <span class="n">f</span> <span class="p">(</span><span class="kt">Leaf</span> <span class="n">x</span><span class="p">)</span> <span class="ow">=</span> <span class="kt">Leaf</span> <span class="p">(</span><span class="n">f</span> <span class="n">x</span><span class="p">)</span>
+<span class="nf">mapTree</span> <span class="n">f</span> <span class="p">(</span><span class="kt">Node</span> <span class="n">t1</span> <span class="n">t2</span><span class="p">)</span> <span class="ow">=</span> <span class="kt">Node</span> <span class="p">(</span><span class="n">mapTree</span> <span class="n">f</span> <span class="n">t1</span><span class="p">)</span> <span class="p">(</span><span class="n">mapTree</span> <span class="n">f</span> <span class="n">t2</span><span class="p">)</span>
+
+<span class="kr">class</span> <span class="kt">HasMap</span> <span class="n">g</span> <span class="kr">where</span>
+    <span class="n">map</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">g</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">g</span> <span class="n">b</span>
+
+<span class="kr">instance</span> <span class="kt">HasMap</span> <span class="kt">[]</span> <span class="kr">where</span>
+    <span class="n">map</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">b</span><span class="p">]</span>
+    <span class="n">map</span> <span class="n">f</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="kt">[]</span>
+    <span class="n">map</span> <span class="n">f</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">f</span> <span class="n">x</span> <span class="kt">:</span> <span class="n">map</span> <span class="n">f</span> <span class="n">xs</span>
+
+
+<span class="kr">instance</span> <span class="kt">HasMap</span> <span class="kt">Maybe</span> <span class="kr">where</span>
+    <span class="n">map</span> <span class="ow">=</span> <span class="n">mapMaybe</span>
+
+<span class="kr">instance</span> <span class="kt">HasMap</span> <span class="kt">Tree</span> <span class="kr">where</span>
+    <span class="n">map</span> <span class="ow">=</span> <span class="n">mapTree</span>
 </pre></div>
                 
                   

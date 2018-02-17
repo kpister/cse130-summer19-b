@@ -19,35 +19,16 @@ dEqBool = MkEqDict {
          eq _      _     = False
          nEq x y = not $ eq x y
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 allEqual :: Eq a -> a -> a -> a -> Bool
 allEqual dict a b c = 
   (==) dict a b && (==) dict b c 
-
-
-
-
-
 
 -- instance Eq a => Eq [a] where ...
 dEqList :: Eq a -> Eq [a]
 dEqList elDict = MkEqDict eq nEq
     where eq [] []         = True
           eq (x:xs) (y:ys) =
-            (==) elDict x y &&jeq xs ys
+            (==) elDict x y && eq xs ys
           eq _ _           = False
           nEq x y          =  not $ eq x y
 

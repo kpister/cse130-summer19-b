@@ -8,8 +8,42 @@
 
 ### Code snippets
 
-Simple example showing how to make `Tree` dataype an instance of `Show`:
+Below are the code snippets from class.
+
+#### Show
 
 ```haskell
 {!lectures/week5/code/type-classes-show.hs!}
 ```
+
+#### Eq
+
+```haskell
+{!lectures/week5/code/type-classes-eq.hs!}
+```
+
+#### Num
+
+```haskell
+{!lectures/week5/code/type-classes-num.hs!}
+```
+
+#### Desugaring type classes to dictionaries
+
+Original code, using type classes:
+
+```haskell
+{!lectures/week5/code/type-classes-sugar.hs!}
+```
+
+Desugaring it to dictionaries:
+```haskell
+{!lectures/week5/code/type-classes-desugar.hs!}
+```
+
+#### A more complex example with type constructors
+
+```haskell
+{!lectures/week5/code/type-classes-complex.hs!}
+```
+
