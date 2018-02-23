@@ -5,6 +5,6 @@
 
 ### Recommended reading
 
-* Object chapters from [Week 6](../week7).
+* Object chapters from [Week 6](../week6).
 - Textbook: Chapters 11, 12
 
