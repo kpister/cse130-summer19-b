@@ -1,6 +1,6 @@
 ### Lecture slides
 
-* Control flow, continuations, monads: [pdf](slides/cpp-and-subtyping.pdf), [key](slides/cpp-and-subtyping.key).
+* Control flow, continuations, monads: [pdf](slides/control.pdf), [key](slides/control.key).
 
 ### Recommended reading
 
