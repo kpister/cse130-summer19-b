@@ -1,21 +1,18 @@
-module Main where
+module Main (main) where
+
 import System.Environment
 
-getFileNameFromArgs :: IO FilePath
-getFileNameFromArgs = do
+getFilename :: IO String
+getFilename = do
   args <- getArgs
   case args of
     (arg:_) -> return arg
-    _ -> fail "expected argument"
-
-countLines :: String -> Int
-countLines str = length $ lines str
-
+    _ -> fail "missing arg"
 
 main :: IO ()
 main = do
-  filename <- getFileNameFromArgs
-  putStrLn $ "wc -l " ++ filename
-  contents <- readFile filename
-  putStrLn $ "lines: " ++ show (countLines contents)
-
+  fname <- getFilename
+  putStrLn $ "processing " ++ fname
+  contents <- readFile fname
+  putStrLn $ "lines: " ++ show (length $ lines contents)
+  putStrLn $ "words: " ++ show (length $ words contents)
