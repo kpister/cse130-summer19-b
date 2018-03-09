@@ -2,6 +2,7 @@
 
 * Monads, continued from [Week 8](../week8). The videos go into the desugarion
   of IO action into Worlds -- watch them!
+* Intro to constant-time: [pdf](slides/constant-time.pdf), [key](slides/constant-time.key),
 
 ### Recommended reading
 
