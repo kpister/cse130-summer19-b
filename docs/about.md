@@ -68,9 +68,10 @@ via gradescope. We will be releasing them on the following dates:
 The midterm exam will be held on **February 6th**, in class. The midterm is
 **closed-book**, but you may use a double-sided cheat sheet (letter-size).
 
-The final exam will be held on March 20th in **TBA** from 7:00PM-9:59PM. You
-**must** take the exam at this time and location.  The final is
-**closed-book**, but you may use 2 double-sided cheat sheets (letter-size).
+The final exam will be held on March 20th in **CENTR 115** (the same room as
+lecture) from 7:00PM-9:59PM. You **must** take the exam at this time and location. 
+The final is **closed-book**, but you may use 2 double-sided cheat sheets
+(letter-size).
 
 The exams will make up 60% of your grade. Since the final is cumulative your
 midterm grade will be calculated as:
