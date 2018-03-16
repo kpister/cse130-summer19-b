@@ -1,10 +1,13 @@
 ### Lecture slides
 
 * (Last week) intro to constant-time: [pdf](../week9/slides/constant-time.pdf), [key](../weeek9/slides/constant-time.key),
-* Constant-time programming in C : [pdf](slides/constant-time-c.pdf), [key](slides/constant-time-c.key),
+* Constant-time programming in C: [pdf](slides/constant-time-c.pdf), [key](slides/constant-time-c.key),
+* Constant-time programming in FaCT: [pdf](slides/constant-time-fact.pdf), [key](slides/constant-time-fact.key),
 
 ### Recommended reading
 
+* [FaCT: A Flexible, Constant-Time Programming Language](https://cseweb.ucsd.edu/~dstefan/pubs/cauligi:2017:fact.pdf) by Cauligi et al.
+* [FaCT Language Reference](https://github.com/PLSysSec/FaCT/wiki/FaCT-Language-Reference)
 * [Crypto coding rules](https://cryptocoding.net/index.php/Coding_rules#Avoid_table_look-ups_indexed_by_secret_data) is an excellent source for transforming C code to constant-time C code.
 * [Constant-Time Toolkit](https://github.com/pornin/CTTK) by Thomas Pornin
 * [On Subnormal Floating Point and Abnormal Timing](https://cseweb.ucsd.edu/~dkohlbre/papers/subnormal.pdf) by Andrysco, et al.
@@ -12,6 +15,12 @@
 * (Last week) [Why Constant-Time Crypto](https://www.bearssl.org/constanttime.html) by Thomas Pornin
 
 ### Code snippets
+
+### FaCT example
+
+```
+{!lectures/week10/code/tutorial.fact!}
+```
 
 #### Compiler-introduced branches
 
