@@ -383,6 +383,13 @@
     Code snippets
   </a>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fact-example" title="FaCT example" class="md-nav__link">
+    FaCT example
+  </a>
+  
     <nav class="md-nav">
       <ul class="md-nav__list">
         
@@ -533,6 +540,13 @@
     Code snippets
   </a>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fact-example" title="FaCT example" class="md-nav__link">
+    FaCT example
+  </a>
+  
     <nav class="md-nav">
       <ul class="md-nav__list">
         
@@ -568,10 +582,13 @@
                 <h3 id="lecture-slides">Lecture slides<a class="headerlink" href="#lecture-slides" title="Permanent link">&para;</a></h3>
 <ul>
 <li>(Last week) intro to constant-time: <a href="./../week9/slides/constant-time.pdf">pdf</a>, <a href="./../weeek9/slides/constant-time.key">key</a>,</li>
-<li>Constant-time programming in C : <a href="./slides/constant-time-c.pdf">pdf</a>, <a href="./slides/constant-time-c.key">key</a>,</li>
+<li>Constant-time programming in C: <a href="./slides/constant-time-c.pdf">pdf</a>, <a href="./slides/constant-time-c.key">key</a>,</li>
+<li>Constant-time programming in FaCT: <a href="./slides/constant-time-fact.pdf">pdf</a>, <a href="./slides/constant-time-fact.key">key</a>,</li>
 </ul>
 <h3 id="recommended-reading">Recommended reading<a class="headerlink" href="#recommended-reading" title="Permanent link">&para;</a></h3>
 <ul>
+<li><a href="https://cseweb.ucsd.edu/~dstefan/pubs/cauligi:2017:fact.pdf">FaCT: A Flexible, Constant-Time Programming Language</a> by Cauligi et al.</li>
+<li><a href="https://github.com/PLSysSec/FaCT/wiki/FaCT-Language-Reference">FaCT Language Reference</a></li>
 <li><a href="https://cryptocoding.net/index.php/Coding_rules#Avoid_table_look-ups_indexed_by_secret_data">Crypto coding rules</a> is an excellent source for transforming C code to constant-time C code.</li>
 <li><a href="https://github.com/pornin/CTTK">Constant-Time Toolkit</a> by Thomas Pornin</li>
 <li><a href="https://cseweb.ucsd.edu/~dkohlbre/papers/subnormal.pdf">On Subnormal Floating Point and Abnormal Timing</a> by Andrysco, et al.</li>
@@ -579,6 +596,137 @@
 <li>(Last week) <a href="https://www.bearssl.org/constanttime.html">Why Constant-Time Crypto</a> by Thomas Pornin</li>
 </ul>
 <h3 id="code-snippets">Code snippets<a class="headerlink" href="#code-snippets" title="Permanent link">&para;</a></h3>
+<h3 id="fact-example">FaCT example<a class="headerlink" href="#fact-example" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>/*
+ FaCT tutorial file
+ for CSE 130
+ */
+
+/* Basic stuff */
+
+export // functions are not exposed to C without `export` keyword
+public int32 simple_fn() { // return value must be `public` or `secret`
+  return 5;
+}
+
+export
+public int32 demo_fn(
+    public int32 x, // arguments require a label
+    secret mut uint32 y) { // y can be used as an output parameter since it is `mut`
+
+  public int32 z = x + 5; // variables also need a label
+  // the following line will cause an error, since z is not `mut`
+  // z += 2;
+
+  public mut int32 t = z;
+  // this is ok, since t is mutable
+  t += 22;
+
+  secret mut uint32 w = 16;
+
+  // error: cannot assign `secret` value to `public` variable
+  // w + x is secret because w is secret
+  // t = w + (uint32)x;
+
+  // ok: y is secret so it can accept secret expressions
+  y = w + (uint32)x;
+
+  // this is an error: the return value is public but w is secret
+  // return w;
+
+  // ok: z is public
+  return z;
+}
+
+export
+secret uint32 call_demo_fn(
+    public int32 x) {
+  secret mut uint32 output = 0; // has to be `mut` since we&#39;re passing it to be updated by `demo_fn`
+  demo_fn(x, ref output); // `ref` keyword is necessary for mutable arguments
+  return output;
+}
+
+export
+void fill_conditionally(
+    public uint32[4] pattern, // fixed length buffer
+    secret mut uint8[] buf, // buffer length won&#39;t be known until run time
+    secret bool b) {
+  // loop iterator must be declared in the for loop header
+  for (uint32 i = 0; i &lt; len buf; i += 1) { // runtime length of buf via `len` keyword
+    // b is secret, so conditional will get transformed
+    //   into constant time code during compilation
+    if (b) {
+      // ok to update buf since it is mutable
+      buf[i] = (uint8)pattern[i % 4]; // cast to uint8 so the types match
+    }
+  }
+}
+
+// no export because this is a helper function
+void twiddle_bytes(
+    secret mut uint8[4] buf) {
+  secret uint8 tmp = buf[0];
+  buf[0] = buf[2];
+  buf[2] = tmp;
+  // can&#39;t reuse tmp because it was not declared `mut`
+  //   (although we could simply change it to be `mut`)
+  secret uint8 tmp2 = buf[1];
+  buf[1] = buf[3];
+  buf[3] = tmp2;
+}
+
+void poorly_constructed_hash_fn(
+    secret mut uint8[20] out,
+    secret uint8[] in) {
+  secret mut uint8[20] local = arrzeros(20); // local mutable array, initialized to all zeros
+  for (uint32 i = 0; i &lt; len in; i += 1) {
+    local[i % len local] += in[i];
+  }
+
+  for (uint32 i = 0; i &lt; 20; i += 4) { // incrementing by 4s
+    // create a &quot;view&quot; of `local` so that it matches with the signature of `twiddle_bytes`
+    twiddle_bytes(ref arrview(local, i, 4)); // view of `local`, starting at index `i`, with a length of 4
+  }
+
+  for (uint32 i = 0; i &lt; 20; i += 1) {
+    out[i] = local[i];
+  }
+}
+
+
+/* More &quot;real&quot; functions */
+
+public int32 conditional_assign(
+    secret mut uint8[] x,
+    secret uint8[] y,
+    secret bool assign) {
+  // public branch
+  if (len x != len y) {
+    return -1;
+  }
+
+  // secret branch
+  if (assign) {
+    for (uint32 i = 0; i &lt; len x; i += 1) {
+      x[i] = y[i];
+    }
+  }
+
+  return 0;
+}
+
+// assuming lengths are public and are equal
+secret int32 safe_memcmp(secret uint8[] x, secret uint8[] y) {
+  for (uint32 i = 0; i &lt; len x; i += 1) {
+    if (x[i] != y[i]) {
+      return (int32)(x[i] - y[i]);
+    }
+  }
+  return 0;
+}
+</pre></div>
+
+
 <h4 id="compiler-introduced-branches">Compiler-introduced branches<a class="headerlink" href="#compiler-introduced-branches" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdbool.h&gt;</span><span class="cp"></span>
