@@ -7,7 +7,7 @@ small labs where students get to implement some of the language features
 discussed in class.
 
 * **Section ID:** 976649
-* **Lectures:** Monday Tuesday Wednesday and Thursday, 11:00-2:20PM in PCYNH 122
+* **Lectures:** Monday Tuesday Wednesday and Thursday, 11:00-12:20PM in PCYNH 122
 * **Section:** Monday and Friday, 12:30-1:20PM in PCYNH 122
 * **Piazza:** <https://piazza.com/ucsd/summer2019/cse130>
 * **Gradescope code:** 97XJGE
