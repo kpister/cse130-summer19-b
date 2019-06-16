@@ -16,6 +16,12 @@ course in and of itself.
 - 25% Midterm exam
 - 35% Final exam
 
+Or
+
+- 50% Homeworks and programming labs
+- 20% Midterm exam
+- 30% Final exam
+
 ## Participation/pre-lecture readings
 
 Before each class there will be some assigned reading. You are expected to do
@@ -34,14 +40,14 @@ were tasked with designing a new language).
 You are expected to work on written assignments in groups of 3. All written
 homework must be typeset and submitted as a PDF using the online submission
 tool.  All written assignments must be submitted as a group.  Homeworks will be
-released Wednesdays and will be due the following Friday night (10 days). If
-you turn it in early -- the following Tuesday (7 days) -- you will
+released Sunday and will be due the following Saturday night (7 days). If
+you turn it in early -- the following Thursday (5 days) -- you will
 receive an additional 10% of your grade. There are no late days.
 
 You are expected to work on the programming labs by yourself. You may discuss
 the assignments with students from the course, in general, but not any specific
-solution. Programming assignments will be released Fridays and will be due 2
-weeks later on Friday night. There are no late days.
+solution. Programming assignments will be released **TBD** and will be due 1
+weeks later on **TBD** night. There are no late days.
 
 If you consult anything (books, academic papers, internet resources, people not
 in your group) when working on the assignments, note this in your submission.
@@ -52,7 +58,7 @@ any point (even after the class is over).
 
 If you are unsure about what is allowed, please ask the course staff.
 
-We will have a 5 written homeworks and 5 programming labs. They equally count
+We will have a 5 written homeworks and 4 programming labs. They equally count
 towards 35% of your grade.
 
 ### Tentative release dates for assignments
@@ -60,16 +66,16 @@ towards 35% of your grade.
 All assignments and solutions will be posted on Piazza. All are to be turned in
 via gradescope. We will be releasing them on the following dates:
 
-- Written homeworks: Jan 17, Jan 24, Jan 31, Feb 14, Feb 20
-- Programming labs: Jan 12, Jan 26, Feb 09, Feb 23, Mar 09
+- **Written homeworks**: June 30, July 7, July 14, July 21, July 28 
+- **Programming Assignments**: TBD
 
 ## Exams
 
-The midterm exam will be held on **February 6th**, in class. The midterm is
+The midterm exam will be held on **TBD**, in class. The midterm is
 **closed-book**, but you may use a double-sided cheat sheet (letter-size).
 
-The final exam will be held on March 20th in **CENTR 115** (the same room as
-lecture) from 7:00PM-9:59PM. You **must** take the exam at this time and location. 
+The final exam will be held on August 3rd in **TBD** 
+from 11:30AM-2:29PM. You **must** take the exam at this time and location. 
 The final is **closed-book**, but you may use 2 double-sided cheat sheets
 (letter-size).
 

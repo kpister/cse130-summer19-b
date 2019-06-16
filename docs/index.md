@@ -6,12 +6,11 @@ few special-topics in programming languages. The class also has a number of
 small labs where students get to implement some of the language features
 discussed in class.
 
-* **Section ID:** 927504
-* **Lectures:** Tuesday and Thursday, 6:30-7:50PM in CENTR 115
-* **Section:** Fridays, 5:00-5:50PM in CENTR 119
-* **Staff email:** <ucsd-cse130-winter18@googlegroups.com>
-* **Piazza:** <https://piazza.com/ucsd/winter2018/cse130>
-* **Gradescope code:** MV8JVW
+* **Section ID:** 976649
+* **Lectures:** Monday Tuesday Wednesday and Thursday, 11:00-2:20PM in PCYNH 122
+* **Section:** Monday and Friday, 12:30-1:20PM in PCYNH 122
+* **Piazza:** <https://piazza.com/ucsd/summer2019/cse130>
+* **Gradescope code:** 97XJGE
 
 #### Textbook
 
@@ -29,5 +28,5 @@ Languages</a> is a must.
 
 #### Course Staff
 
-- **Instructor:** [Deian Stefan](https://cseweb.ucsd.edu/~dstefan/)
-- **TAs:** Abdulrahman Alkhelaifi, Nadah Feteih, Purag Moumdjian, Kaiser Pister, and Sanjeev T Reddy
+- **Instructor:** [Kaiser Pister](https://cseweb.ucsd.edu/~kpister/)
+- **TAs:** TBD

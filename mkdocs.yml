@@ -1,5 +1,5 @@
 site_name: 'Programming Languages: Principles and Paradigms'
-site_author: 'Deian Stefan'
+site_author: 'Kaiser Pister'
 
 theme:
   name: 'material'
@@ -15,9 +15,7 @@ theme:
 extra:
   social:
     - type: 'github'
-      link: 'https://github.com/PLSysSec/cse130-winter18'
-    - type: 'twitter'
-      link: 'https://twitter.com/deiandelmars'
+      link: 'https://github.com/kpister/cse130-summer19'
 
 markdown_extensions:
   - admonition
@@ -38,19 +36,19 @@ pages:
   - Syllabus: syllabus.md
   - Organization: about.md
   - Contact information: contact.md
-  - Lectures:
-        - Week 1: 'lectures/week1/index.md'
-        - Week 2: 'lectures/week2/index.md'
-        - Week 3: 'lectures/week3/index.md'
-        - Week 4: 'lectures/week4/index.md'
-        - Week 5: 'lectures/week5/index.md'
-        - Week 6: 'lectures/week6/index.md'
-        - Week 7: 'lectures/week7/index.md'
-        - Week 8: 'lectures/week8/index.md'
-        - Week 9: 'lectures/week9/index.md'
-        - Week 10: 'lectures/week10/index.md'
+  - Lectures: 
+    - Week 1: 'lectures/week1/index.md'
+          #- Week 2: 'lectures/week2/index.md'
+          #- Week 3: 'lectures/week3/index.md'
+          #- Week 4: 'lectures/week4/index.md'
+          #- Week 5: 'lectures/week5/index.md'
+          #- Week 6: 'lectures/week6/index.md'
+          #- Week 7: 'lectures/week7/index.md'
+          #- Week 8: 'lectures/week8/index.md'
+          #- Week 9: 'lectures/week9/index.md'
+          #- Week 10: 'lectures/week10/index.md'
   - Discussions:
-        - Week 1: 'discussions/week1/index.md'
-        - Week 2: 'discussions/week2/index.md'
+    - Week 1: 'discussions/week1/index.md'
+      #- Week 2: 'discussions/week2/index.md'
   - Additional notes:
-        - JavaScript No No's: 'notes/js_nono.md'
+    - JavaScript No No's: 'notes/js_nono.md'
