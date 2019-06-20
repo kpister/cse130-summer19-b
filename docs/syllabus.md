@@ -9,5 +9,5 @@
 
 ### Tenative release dates for assignments:
 
-- **Written homeworks**: June 30, July 7, July 14, July 21, July 28 
-- **Programming Assignments**: TBD
+- **Written homeworks**: [June 30](assn/hw1.pdf), [July 7](assn/hw2.pdf), [July 14](assn/hw3.pdf), [July 21](assn/hw4.pdf), [July 28](assn/hw5.pdf)
+- **Programming Assignments**: June 30, July 7, Skip Week, July 21, July 28 

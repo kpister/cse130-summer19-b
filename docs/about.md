@@ -46,8 +46,8 @@ receive an additional 10% of your grade. There are no late days.
 
 You are expected to work on the programming labs by yourself. You may discuss
 the assignments with students from the course, in general, but not any specific
-solution. Programming assignments will be released **TBD** and will be due 1
-weeks later on **TBD** night. There are no late days.
+solution. Programming assignments will be released **Sunday** and will be due 1
+weeks later on **Sunday** night. There are no late days.
 
 If you consult anything (books, academic papers, internet resources, people not
 in your group) when working on the assignments, note this in your submission.
@@ -67,7 +67,7 @@ All assignments and solutions will be posted on Piazza. All are to be turned in
 via gradescope. We will be releasing them on the following dates:
 
 - **Written homeworks**: June 30, July 7, July 14, July 21, July 28 
-- **Programming Assignments**: TBD
+- **Programming Assignments**: June 30, July 7, Skip Week, July 21, July 28 
 
 ## Exams
 
