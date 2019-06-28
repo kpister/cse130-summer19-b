@@ -29,4 +29,4 @@ Languages</a> is a must.
 #### Course Staff
 
 - **Instructor:** [Kaiser Pister](https://cseweb.ucsd.edu/~kpister/)
-- **TAs:** TBD
+- **TAs:** Yinglong, Yanzhi, Kiana, Dongyao
