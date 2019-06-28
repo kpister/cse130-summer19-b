@@ -8,14 +8,20 @@ post a private question or contact the course staff by email.
 
 - **Name:** [Kaiser Pister](https://cseweb.ucsd.edu/~kpister/)
 - **Email:** <kpister+cse130@eng.ucsd.edu>
-- **Address:** TBD
+- **Address:** CSE 3234
 - **Office Hours:** TBD
 
 ##### Teaching Assistants
 
-- **Name:** TBD
+- **Name:** Yinglong Miao
 - **Office hours:** TBD
 <hr/>
-- **Name:** TBD
+- **Name:** Yanzhi Ding
+- **Office hours:** TBD
+<hr/>
+- **Name:** Kiana Lucin
+- **Office hours:** TBD
+<hr/>
+- **Name:** Dongyao Zhu
 - **Office hours:** TBD
 <hr/>

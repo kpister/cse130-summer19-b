@@ -12,12 +12,6 @@ course in and of itself.
 ## Grading
 
 -  5% Participation in class and online
-- 35% Homeworks and programming labs
-- 25% Midterm exam
-- 35% Final exam
-
-Or
-
 - 50% Homeworks and programming labs
 - 20% Midterm exam
 - 30% Final exam
@@ -59,7 +53,7 @@ any point (even after the class is over).
 If you are unsure about what is allowed, please ask the course staff.
 
 We will have a 5 written homeworks and 4 programming labs. They equally count
-towards 35% of your grade.
+towards 50% of your grade.
 
 ### Tentative release dates for assignments
 
@@ -71,7 +65,7 @@ via gradescope. We will be releasing them on the following dates:
 
 ## Exams
 
-The midterm exam will be held on **TBD**, in class. The midterm is
+The midterm exam will be held on **July 16th**, in class. The midterm is
 **closed-book**, but you may use a double-sided cheat sheet (letter-size).
 
 The final exam will be held on August 3rd in **TBD** 
