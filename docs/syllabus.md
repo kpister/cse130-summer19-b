@@ -1,6 +1,6 @@
 | **Week of **        | <center>**Monday & Tuesday**</center>                | <center>**Wednesday & Thursday**</center>      | <center>**Monday & Friday (section)**</center> |
 |:--------------------|:-----------------------------------------------------|:-----------------------------------------------|:-----------------------------------------------|
-| Jul 01-<br/> Jul 04 |  JavaScript and high-order functions                 | Lambda Calculus                                | Lambda Calc Review
+| Jul 01-<br/> Jul 04 |  JavaScript and high-order functions                 | Lambda Calculus & Holiday                      | Lambda Calc Review
 | Jul 08-<br/> Jul 11 |  Closures & Haskell Crash Course                     | Type polymorphism and type inference           | Haskell Crash Course (cont.)
 | Jul 15-<br/> Jul 18 |  Catch-up / Review & **Midterm**                     | Type classes                                   | Midterm Review (Monday section)
 | Jul 22-<br/> Jul 25 |  Objects                                             | vtables, subtyping, inheritance                | C++ Review 
