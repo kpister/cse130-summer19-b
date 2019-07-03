@@ -23,5 +23,5 @@ post a private question or contact the course staff by email.
 - **Office hours:** Wednesday 1:00pm - 3:00pm, Location: CSE B240A
 <hr/>
 - **Name:** Dongyao Zhu
-- **Office hours:** Thursday 2:00pm - 4:00pm, Location: TBD
+- **Office hours:** Thursday 2:00pm - 4:00pm, Location: CSE B275
 <hr/>
