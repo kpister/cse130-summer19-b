@@ -14,7 +14,7 @@ post a private question or contact the course staff by email.
 ##### Teaching Assistants
 
 - **Name:** Yinglong Miao
-- **Office hours:** Wednesday 4:00pm - 6:00pm, Location: CSE B250A
+- **Office hours:** Tuesday 4:00pm - 6:00pm, Location: CSE B250A
 <hr/>
 - **Name:** Yanzhi Ding
 - **Office hours:** Monday TBD, Location: TBD

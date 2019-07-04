@@ -41,7 +41,8 @@ receive an additional 10% of your grade. There are no late days.
 You are expected to work on the programming labs by yourself. You may discuss
 the assignments with students from the course, in general, but not any specific
 solution. Programming assignments will be released **Sunday** and will be due 1
-weeks later on **Sunday** night. There are no late days.
+weeks later on **Saturday** night. If you turn it in early -- the following Thursday
+-- you will receive an additional 10% of your grade. There are no late days.
 
 If you consult anything (books, academic papers, internet resources, people not
 in your group) when working on the assignments, note this in your submission.
