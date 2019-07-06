@@ -27,5 +27,5 @@ Below you'll find the source we used during lecture. You can run these with
 GHCi (e.g., from [Haskell Platform](https://www.haskell.org/platform/)).
 
 ```haskell
-{!lectures/week3/code/intro.hs!}
+{!lectures/week2a/code/intro.hs!}
 ```

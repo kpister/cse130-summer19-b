@@ -36,10 +36,11 @@ pages:
   - Syllabus: syllabus.md
   - Organization: about.md
   - Contact information: contact.md
+  - Assignments: assignments.md
   - Lectures: 
     - Week 1: 'lectures/week1/index.md'
-          #- Week 2: 'lectures/week2/index.md'
-          #- Week 3: 'lectures/week3/index.md'
+    - Week 1b: 'lectures/week1b/index.md'
+    - Week 2a: 'lectures/week2a/index.md'
           #- Week 4: 'lectures/week4/index.md'
           #- Week 5: 'lectures/week5/index.md'
           #- Week 6: 'lectures/week6/index.md'
