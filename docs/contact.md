@@ -17,7 +17,7 @@ post a private question or contact the course staff by email.
 - **Office hours:** Tuesday 4:00pm - 6:00pm, Location: CSE B250A
 <hr/>
 - **Name:** Yanzhi Ding
-- **Office hours:** Monday TBD, Location: TBD
+- **Office hours:** Monday 2:00pm - 4:00pm, Location: B250A
 <hr/>
 - **Name:** Kiana Lucin
 - **Office hours:** Wednesday 1:00pm - 3:00pm, Location: CSE B240A
