@@ -41,15 +41,9 @@ pages:
     - Week 1: 'lectures/week1/index.md'
     - Week 1b: 'lectures/week1b/index.md'
     - Week 2a: 'lectures/week2a/index.md'
-          #- Week 4: 'lectures/week4/index.md'
-          #- Week 5: 'lectures/week5/index.md'
-          #- Week 6: 'lectures/week6/index.md'
-          #- Week 7: 'lectures/week7/index.md'
-          #- Week 8: 'lectures/week8/index.md'
-          #- Week 9: 'lectures/week9/index.md'
-          #- Week 10: 'lectures/week10/index.md'
+    - Week 2b: 'lectures/week2b/index.md'
   - Discussions:
     - Week 1: 'discussions/week1/index.md'
-      #- Week 2: 'discussions/week2/index.md'
+    - Week 2: 'discussions/week2/index.md'
   - Additional notes:
     - JavaScript No No's: 'notes/js_nono.md'
