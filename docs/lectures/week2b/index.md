@@ -17,5 +17,5 @@ out example of the `hog` function from the homework using only the `(.)`
 function:
 
 ```haskell
-{!lectures/week4/code/type-tetris.hs!}
+{!lectures/week2b/code/type-tetris.hs!}
 ```
