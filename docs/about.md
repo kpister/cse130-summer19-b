@@ -74,7 +74,7 @@ from 11:30AM-2:29PM. You **must** take the exam at this time and location.
 The final is **closed-book**, but you may use 2 double-sided cheat sheets
 (letter-size).
 
-The exams will make up 60% of your grade. Since the final is cumulative your
+The exams will make up 50% of your grade. Since the final is cumulative your
 midterm grade will be calculated as:
 
 ```
