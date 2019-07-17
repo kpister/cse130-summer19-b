@@ -13,19 +13,19 @@ Below are the code snippets from class.
 #### Show
 
 ```haskell
-{!lectures/week5/code/type-classes-show.hs!}
+{!lectures/week3b/code/type-classes-show.hs!}
 ```
 
 #### Eq
 
 ```haskell
-{!lectures/week5/code/type-classes-eq.hs!}
+{!lectures/week3b/code/type-classes-eq.hs!}
 ```
 
 #### Num
 
 ```haskell
-{!lectures/week5/code/type-classes-num.hs!}
+{!lectures/week3b/code/type-classes-num.hs!}
 ```
 
 #### Desugaring type classes to dictionaries
@@ -33,17 +33,17 @@ Below are the code snippets from class.
 Original code, using type classes:
 
 ```haskell
-{!lectures/week5/code/type-classes-sugar.hs!}
+{!lectures/week3b/code/type-classes-sugar.hs!}
 ```
 
 Desugaring it to dictionaries:
 ```haskell
-{!lectures/week5/code/type-classes-desugar.hs!}
+{!lectures/week3b/code/type-classes-desugar.hs!}
 ```
 
 #### A more complex example with type constructors
 
 ```haskell
-{!lectures/week5/code/type-classes-complex.hs!}
+{!lectures/week3b/code/type-classes-complex.hs!}
 ```
 
