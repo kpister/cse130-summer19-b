@@ -36,7 +36,9 @@ pages:
   - Syllabus: syllabus.md
   - Organization: about.md
   - Contact information: contact.md
-  - Assignments: assignments.md
+  - Assignments: 
+    - Main: 'assignments.md'
+    - Tokenizer.md: 'assn/Tokenizer.md'
   - Lectures: 
     - Week 1: 'lectures/week1/index.md'
     - Week 1b: 'lectures/week1b/index.md'
