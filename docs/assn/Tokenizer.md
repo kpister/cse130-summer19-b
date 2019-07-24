@@ -41,3 +41,36 @@ PL is often the precursor to Compilers (CSE 131) because the ideas that we discu
 Compilers are often divided into 4 key parts: Lexer (tokenizer), Parser, Semantic Analysis, Code Generation. With this start, I encourage you to try building the next stages for your language as well!
 
 This document will continue to grow over the next few weeks. Check back online for updated versions with more advice.
+
+
+## Guide
+
+If you are looking for some advice on how to start your project, see below. Otherwise this can be ignored.
+
+### Step 1. Make Choices
+
+Choose a language you want to write your code in, my go to choice is Python, but for a language task Haskell might be perfect.
+
+Next choose or create a language you want to parse. This step could take a while. 
+Feel free to google around for [esoteric languages](https://en.wikipedia.org/wiki/Esoteric_programming_language) like Brainf\*ck, 
+or use something we covered like uHaskell or Lambda Calculus. 
+
+If you want to create a language, start by creating a subset of a current language: uGo for example.
+
+### Step 2. Establish the Lexicon
+
+Compile a list of each token that could exist in your language.
+These are things like identifiers, brackets, the primative times, etc. Some languages have a lot!
+
+### Step 3. Write the Lexer
+
+Write some code to parse a file, generally splitting on whitespace (though that doesn't work for [whitespace](https://en.wikipedia.org/wiki/Esoteric_programming_language#whitespace)).
+With each token, figure out what part of the lexicon it might be, and add that to your list.
+
+### Step 4. Celebrate! [Optional]
+
+
+### Step 5. Build a Parser. [Optional, extra credit??]
+
+Once you have a list of the source code tokens, you can start to parse them into expressions.
+This step requires further independent research.

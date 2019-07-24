@@ -28,5 +28,12 @@ Notes:
 - The VM comes with Node and Haskell, as well as the pa's already downloaded and setup.
 - To SSH into the VM run `ssh -p 2222 student@127.0.0.1` while the VM is running
 - There are two accounts: student (password: lambda) and root (password: plrocks)
+- The PA 3 VM is identical to the original VM, but uses only GHCI instead of stack.
 
-[Link](https://drive.google.com/file/d/16_ECVQh8TQtLMZ-twa2791vUuMqzVQv_/view?usp=sharing)
+[The original VM with PA 1 and 2](https://drive.google.com/file/d/16_ECVQh8TQtLMZ-twa2791vUuMqzVQv_/view?usp=sharing)
+
+[The PA 3 VM](https://drive.google.com/file/d/1UkSdOkvcD4gE5ZRXUfQvGi1vA6xwzMuN/view?usp=sharing)
+
+The new VM is identical to the other VM, but uses GHCI instead of stack.
+`ghci Calculator.hs` to run etc.
+
