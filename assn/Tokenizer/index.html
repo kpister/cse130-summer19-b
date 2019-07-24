@@ -318,6 +318,54 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#guide" title="Guide" class="md-nav__link">
+    Guide
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-make-choices" title="Step 1. Make Choices" class="md-nav__link">
+    Step 1. Make Choices
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-establish-the-lexicon" title="Step 2. Establish the Lexicon" class="md-nav__link">
+    Step 2. Establish the Lexicon
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-write-the-lexer" title="Step 3. Write the Lexer" class="md-nav__link">
+    Step 3. Write the Lexer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-celebrate-optional" title="Step 4. Celebrate! [Optional]" class="md-nav__link">
+    Step 4. Celebrate! [Optional]
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-build-a-parser-optional-extra-credit" title="Step 5. Build a Parser. [Optional, extra credit??]" class="md-nav__link">
+    Step 5. Build a Parser. [Optional, extra credit??]
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -578,6 +626,54 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#guide" title="Guide" class="md-nav__link">
+    Guide
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-make-choices" title="Step 1. Make Choices" class="md-nav__link">
+    Step 1. Make Choices
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-establish-the-lexicon" title="Step 2. Establish the Lexicon" class="md-nav__link">
+    Step 2. Establish the Lexicon
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-write-the-lexer" title="Step 3. Write the Lexer" class="md-nav__link">
+    Step 3. Write the Lexer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-celebrate-optional" title="Step 4. Celebrate! [Optional]" class="md-nav__link">
+    Step 4. Celebrate! [Optional]
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-build-a-parser-optional-extra-credit" title="Step 5. Build a Parser. [Optional, extra credit??]" class="md-nav__link">
+    Step 5. Build a Parser. [Optional, extra credit??]
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -625,6 +721,24 @@ A tokenizer can loosely be written as a function f :: Token a =&gt; File -&gt; [
 <p>PL is often the precursor to Compilers (CSE 131) because the ideas that we discuss in class make their way into languages through a compiler.</p>
 <p>Compilers are often divided into 4 key parts: Lexer (tokenizer), Parser, Semantic Analysis, Code Generation. With this start, I encourage you to try building the next stages for your language as well!</p>
 <p>This document will continue to grow over the next few weeks. Check back online for updated versions with more advice.</p>
+<h2 id="guide">Guide<a class="headerlink" href="#guide" title="Permanent link">&para;</a></h2>
+<p>If you are looking for some advice on how to start your project, see below. Otherwise this can be ignored.</p>
+<h3 id="step-1-make-choices">Step 1. Make Choices<a class="headerlink" href="#step-1-make-choices" title="Permanent link">&para;</a></h3>
+<p>Choose a language you want to write your code in, my go to choice is Python, but for a language task Haskell might be perfect.</p>
+<p>Next choose or create a language you want to parse. This step could take a while. 
+Feel free to google around for <a href="https://en.wikipedia.org/wiki/Esoteric_programming_language">esoteric languages</a> like Brainf*ck, 
+or use something we covered like uHaskell or Lambda Calculus. </p>
+<p>If you want to create a language, start by creating a subset of a current language: uGo for example.</p>
+<h3 id="step-2-establish-the-lexicon">Step 2. Establish the Lexicon<a class="headerlink" href="#step-2-establish-the-lexicon" title="Permanent link">&para;</a></h3>
+<p>Compile a list of each token that could exist in your language.
+These are things like identifiers, brackets, the primative times, etc. Some languages have a lot!</p>
+<h3 id="step-3-write-the-lexer">Step 3. Write the Lexer<a class="headerlink" href="#step-3-write-the-lexer" title="Permanent link">&para;</a></h3>
+<p>Write some code to parse a file, generally splitting on whitespace (though that doesn't work for <a href="https://en.wikipedia.org/wiki/Esoteric_programming_language#whitespace">whitespace</a>).
+With each token, figure out what part of the lexicon it might be, and add that to your list.</p>
+<h3 id="step-4-celebrate-optional">Step 4. Celebrate! [Optional]<a class="headerlink" href="#step-4-celebrate-optional" title="Permanent link">&para;</a></h3>
+<h3 id="step-5-build-a-parser-optional-extra-credit">Step 5. Build a Parser. [Optional, extra credit??]<a class="headerlink" href="#step-5-build-a-parser-optional-extra-credit" title="Permanent link">&para;</a></h3>
+<p>Once you have a list of the source code tokens, you can start to parse them into expressions.
+This step requires further independent research.</p>
                 
                   
                 
