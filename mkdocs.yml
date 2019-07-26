@@ -50,5 +50,6 @@ pages:
   - Discussions:
     - Week 1: 'discussions/week1/index.md'
     - Week 2: 'discussions/week2/index.md'
+    - Week 4: 'discussions/week4/index.md'
   - Additional notes:
     - JavaScript No No's: 'notes/js_nono.md'
