@@ -32,7 +32,22 @@ The ideal tokenization would be:
 
 ### Grading
 
-We will grade largely on effort put into the project, however we also expect to be able to run your tokenizer on a few sample files of the language it reads. In your Gradescope submission, please include at least 3 files which your tokenizer can parse.
+We will grade largely on effort put into the project, however we also expect to be able to run your tokenizer on a few sample files of the language it reads. 
+In your Gradescope submission, please include at least 3 files which your tokenizer can parse, as well as a README file as described below.
+
+### Required README:
+
+Please include with your tokenizer a README.md file which answers the following questions:
+
+1. What language is your tokenizer written in?
+
+2. What language are you tokenizing?
+
+3. How do you run your tokenizer?
+
+4. What is the output format of your tokenizer?
+
+5. What sorts of errors can your tokenizer handle?
 
 ### Notes
 
