@@ -6,11 +6,11 @@ few special-topics in programming languages. The class also has a number of
 small labs where students get to implement some of the language features
 discussed in class.
 
-* **Section ID:** 976649
-* **Lectures:** Monday Tuesday Wednesday and Thursday, 11:00-12:20PM in PCYNH 122
-* **Section:** Monday and Friday, 12:30-1:20PM in PCYNH 122
-* **Piazza:** <https://piazza.com/ucsd/summer2019/cse130>
-* **Gradescope code:** 97XJGE
+* **Section ID:** 976682
+* **Lectures:** Monday Tuesday Wednesday and Thursday, 11:00-12:20PM in WLH 2113
+* **Section:** Monday and Friday, 12:30-1:20PM in WLH 2113
+* **Piazza:** <https://piazza.com/ucsd/summer2019/cse1302/home>
+* **Gradescope code:** MVWN3X
 
 #### Textbook
 
@@ -29,4 +29,4 @@ Languages</a> is a must.
 #### Course Staff
 
 - **Instructor:** [Kaiser Pister](https://cseweb.ucsd.edu/~kpister/)
-- **TAs:** Yinglong, Yanzhi, Kiana, Dongyao
+- **TAs:** TBD, Kiana, Dongyao

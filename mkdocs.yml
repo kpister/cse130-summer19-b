@@ -15,7 +15,7 @@ theme:
 extra:
   social:
     - type: 'github'
-      link: 'https://github.com/kpister/cse130-summer19'
+      link: 'https://github.com/kpister/cse130-summer19-b'
 
 markdown_extensions:
   - admonition
